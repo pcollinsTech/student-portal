@@ -189,7 +189,7 @@ export default {
 
       // submit form here
       var self = this;
-
+    console.log(formData)
       axios
         .post("/registration", formData)
         .then(function(response) {

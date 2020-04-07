@@ -8,7 +8,7 @@
           <div class="card-body">
             <div>
             <button
-              class="btn btn-info float-right"
+              class="btn btn-info"
               style="color: white"
               v-on:click="downloadPdf"
             >Download Certification Form</button>

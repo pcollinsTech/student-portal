@@ -39,6 +39,34 @@
                         <template v-for="field in fields_3">
                             <input-field-component @submit="eventHandler($event)" :field="field"></input-field-component>
                         </template>
+                        <hr/>
+                        <p>
+                            The Pharmaceutical Society NI (PSNI) is a data controller registered with the Information Commissioner’s Office. We will make use of personal data provided to support our work in administering pre-registration training, as the regulatory body for Pharmacists and registered Pharmacies in Northern Ireland and for our work as the professional leadership body for Pharmacists in Northern Ireland. We will process your personal data for purposes including updating the trainee register, administering pre-registration training, registration, processing complaints, monitoring fitness to practise, and compiling statistics.
+                        </p>
+                        <p>
+                            PSNI will not share your personal data on a commercial basis with any third party. We may, however, share your data with third parties to meet our statutory aims, objectives, powers and responsibilities under the Pharmacy (Northern Ireland) Order 1976, the regulations made under the Order and other legislation. We may pass information to organisations with a legitimate interest including other regulatory and enforcement authorities, Health and Social Care Board, Business Service Organisation, employers and the DoH.
+                        </p>
+                        <p>
+                            Your data is processed under General Data Protection Regulation (GDPR) Article 6 (c)(d)(e)(f).
+                        </p>
+                        <p>
+                            Your name, address, date of birth, telephone numbers, email address, employment details are used for the administration of the pre-registration training programme, finance and regulatory processing. These details are held securely in paper and digital form. By completing the pre-registration application process, you agree to PSNI holding and processing these details under the GDPR regulations.
+                        </p>
+                        <p>
+                            Employment data can also be used to develop regulatory activities and services in relation to the workforce. This information, as a statistic, may be made publicly available.
+                        </p>
+                        <p>
+                            Your personal details are used by departments dealing with pre-registration training, administration and communication to provide up to date information about pre-registration training, regulatory activities and by the Pharmacy Forum for the purpose of communications in relation to pre-registration training activities. This can be sent by postal mail or email and, under GDPR regulations, are sent under legitimate interests.
+                        </p>
+                        <p>
+                            Declarations of health or character will be primarily processed by the Registrar and other members of the organisation for regulatory activities.
+                        </p>
+                        <p>
+                            This information can be used in conjunction with FtP processes and can, where appropriate, be shared with relevant governing bodies. These are stored securely, in paper and digital form, separately from general registration data.
+                        </p>
+                        <p>
+                            Your financial data is processed by the Business Manager and finance team. All data is securely stored in both paper and digital form and securely destroyed after 7 years in line with GDPR regulations. You are entitled to see the information we hold about you. If you wish to see this information, please send your request in writing to: Data Protection Officer, Pharmaceutical Society NI, 73 University Street, Belfast BT7 1HL, detailing the information you wish to see. We are required to respond within 30 days
+                        </p>
                     </div>
                 </div>
 
@@ -49,6 +77,7 @@
                         <template v-for="field in fields_4">
                             <input-field-component @submit="eventHandler($event)" :field="field"></input-field-component>
                         </template>
+                        
                     </div>
                 </div>
             </div>
@@ -326,6 +355,28 @@
                         value: '',
                         required: true,
                     },
+                    entry_date: {
+                        id: 'entry_date',
+                        name: 'Date of Entry to Degree Course',
+                        extra: '',
+                        type: 'date',
+                        autocomplete: 'off',
+                        error: false,
+                        options: [
+                            {
+                                minDate: (moment()).subtract(7, 'year' ).toDate(),
+                                maxDate: (moment()).subtract(4, 'year' ).toDate(),
+                                // loadPage: (moment()).subtract('year', 18),
+                                loadPage: {
+                                    month: ((moment()).subtract(4, 'year' ).month()+1),
+                                    year: (moment()).subtract(4, 'year').year(),
+                                },
+                            }
+                        ],
+                        external: false,
+                        value: '',
+                        required: true,
+                    },
                     previous_training: {
                         id: 'previous_training',
                         name: 'Previous Pre-Reg Training',
@@ -403,7 +454,7 @@
                     },
                     declaration_5: {
                         id: 'declaration_5',
-                        name: 'I note the data protection statement as it applies to relevant information held about me.',
+                        name: 'I note the data protection statement below as it applies to relevant information held about me.',
                         extra: '',
                         type: 'boolean',
                         autocomplete: 'off',

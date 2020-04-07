@@ -100,7 +100,13 @@ class RegistrationController extends Controller
                     break;
                 default:
 //                    Set view to default_waiting screen
-                    return 'waiting screen';
+                    $uID = Auth::user();
+                    $student = User::findOrFail($uID->id)->student()->first();
+                    // dd($student);
+                    $variables = [
+                        'student',
+                    ];
+                    return 'registration.09_student_waiting';
                     break;
             }
 
@@ -195,7 +201,7 @@ class RegistrationController extends Controller
 
                 // dd($request->all());
 
-                $user_status = 'pharmacy_acceptance_required';
+                // $user_status = 'pharmacy_acceptance_required';
 
 
 //             case 'tutor_details':

@@ -76,7 +76,7 @@
             <label :for="field.id" class="col-md-10 col-form-label text-md-right">{{ field.name }} <br><small v-if="field.extra">Viewable at the following <a :href="field.extra">link</a></small></label>
 
             <div class="col-md-2 text-right">
-                <b-form-checkbox v-model="field.value" name="check-button" switch>
+                <b-form-checkbox v-model="field.value" name="check-button" >
                     {{ niceBoolean }}
                 </b-form-checkbox>
             </div>

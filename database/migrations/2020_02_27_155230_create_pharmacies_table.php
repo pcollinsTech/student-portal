@@ -25,7 +25,6 @@ class CreatePharmaciesTable extends Migration
             $table->string('phone')->nullable();
             $table->string('website')->nullable();
             $table->string('email')->nullable();
-            $table->boolean('verified')->default(false);
             $table->timestamps();
         });
     }

@@ -63,9 +63,9 @@ class UpdatePharmacyData extends Command
                 "trading_name" => $pharmacy->name,
                 "address_1" => $pharmacy->address1,
                 "town" => $pharmacy->town,
+                "email" => $pharmacy->email,
                 "county" => $pharmacy->county,
                 "post_code" => $pharmacy->postCode,
-                "verified" => true
             ]);
         }
 

@@ -14,11 +14,23 @@ body{
 .card-header{
     color: #4f4f4f;
 }
+
 .clearfix {
     overflow: auto;
 }
+
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
-  }
+}
+
+.button {
+    color:white;
+    background-color: $black;
+    font-size: 2rem;
+    padding: 10px 20px;
+}
+.primary {
+    color: $primary;
+}

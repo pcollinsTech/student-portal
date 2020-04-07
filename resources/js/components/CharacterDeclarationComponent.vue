@@ -5,7 +5,8 @@
                 <div class="card">
                     <div class="card-header">Character Declaration</div>
                     <div class="card-body">
-<p>It is important that any graduate wishing to register as a trainee of the Pharmaceutical Society NI must be able to satisfy the Council of the Pharmaceutical Society of his/her good character.</p>
+                        <p>It is important that any graduate wishing to register as a trainee of the Pharmaceutical Society NI must be able to satisfy the Council of the Pharmaceutical Society of his/her good character.</p>
+                        <br/>
                         <template v-for="field in fields_0">
                             <input-field-component @submit="eventHandler($event)" :field="field"></input-field-component>
                         </template>
