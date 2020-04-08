@@ -55,10 +55,10 @@
         </template>
         <!--True Detail-->
         <template v-else-if="field.type == 'true_detail'">
-            <label :for="field.id" class="col-md-8 col-form-label text-md-right">{{ field.name }} <br><small v-if="field.extra">Viewable at the following <a :href="field.extra">link</a></small></label>
+            <label :for="field.id" class="col-md-10 col-form-label text-md-right">{{ field.name }} <br><small v-if="field.extra">Viewable at the following <a :href="field.extra">link</a></small></label>
 
-            <div class="col-md-4">
-                <b-form-checkbox v-model="field.value" name="check-button" switch>
+            <div class="col-md-2 text-right">
+                <b-form-checkbox v-model="field.value" name="check-button">
                     {{ niceBoolean }}
                 </b-form-checkbox>
 

@@ -38,9 +38,7 @@
             }
 
             .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
+                
             }
 
             .content {
@@ -52,7 +50,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: white;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -77,7 +75,7 @@
                 </button>
 
                 @if (Route::has('login'))
-                    <div class="top-right links">
+                    <div class="ml-auto links">
                         @auth
                             <a href="{{ url('/registration') }}">Registration</a>
                             <a href="{{ url('/logout') }}">Logout <i class="fa fa-sign-out pl-2"></i></a>
@@ -92,7 +90,7 @@
                 @endif
             </div>
         </nav>
-        <div class="container">
+        <div class="container mb-4" style="line-height: 2rem;">
             
 
             <h3 class="text-center my-4">Before You Begin Your Application Please Read all the infomormation Below and confirm you have all items required from the checklist</h3>

@@ -52,7 +52,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: white;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -77,7 +77,7 @@
                 </button>
 
                 @if (Route::has('login'))
-                    <div class="top-right links">
+                    <div class="ml-auto links">
                         @auth
                             <a href="{{ url('/registration') }}">Registration</a>
                             <a href="{{ url('/logout') }}">Logout <i class="fa fa-sign-out pl-2"></i></a>
