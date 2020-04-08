@@ -40,6 +40,8 @@ Vue.component('character-declaration-component', require('./components/Character
 Vue.component('health-declaration-component', require('./components/HealthDeclarationComponent.vue').default);
 Vue.component('supporting-documents-component', require('./components/SupportingDocumentsComponent.vue').default);
 Vue.component('placement-details-component', require('./components/PlacementSelectComponent.vue').default);
+Vue.component('pharmacy-acceptance', require('./components/PharmacyAcceptanceForm.vue').default);
+Vue.component('tutor-acceptance', require('./components/TutorAcceptanceForm.vue').default);
 Vue.component('b-form-file', BFormFile)
 
 // Use v-calendar & v-date-picker components

@@ -3,13 +3,28 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header">Payment Details</div>
+          <div class="card-header"><strong></strong>Pharmacy Acceptance</div>
 
           <div class="card-body">
-            <p>A fee of ...... will be require to proceed</p>
-
+            <h3>Do you accept this student on Placement?</h3>
+            <p>{{ this.student.forenames}} {{ this.student.surname }}</p>
             <template v-for="field in fields_0">
-              <input-field-component @submit="eventHandler($event)" :field="field"></input-field-component>
+              <input-field-component
+                @submit="eventHandler($event)"
+                :field="field"
+              ></input-field-component>
+            </template>
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="card-header"><strong></strong>Pharmacy Declarations</div>
+
+          <div class="card-body">
+            <template v-for="field in fields_1">
+              <input-field-component
+                @submit="eventHandler($event)"
+                :field="field"
+              ></input-field-component>
             </template>
           </div>
         </div>
@@ -27,100 +42,40 @@ export default {
   },
 
   props: {
-    // counties: {
-    //     type: Array,
-    //     required: true,
-    // },
-    // universities: {
-    //     type: Array,
-    //     required: true,
-    // },
+    student: {
+        type: Object,
+        required: true,
+    },
   },
-
   data() {
     return {
-     fields_0: {
-        title: {
-          id: "title",
-          name: "Title",
-          type: "select",
-          autocomplete: "off",
-          error: false,
-          options: [
-            {
-              value: "",
-              display: "Select Your Title",
-              disabled: true
-            },
-            {
-              value: "mr",
-              display: "Mr",
-              disabled: false
-            },
-            {
-              value: "ms",
-              display: "Ms",
-              disabled: false
-            },
-            {
-              value: "miss",
-              display: "Miss",
-              disabled: false
-            },
-            {
-              value: "mrs",
-              display: "Mrs",
-              disabled: false
-            },
-            {
-              value: "dr",
-              display: "Dr",
-              disabled: false
-            }
-          ],
-          external: false,
-          value: "",
-          required: true
-        },
-        forenames: {
-          id: "forenames",
-          name: "Forename(s)",
-          extra: "as on birth certificate",
-          type: "text",
-          autocomplete: "forename",
-          error: false,
-          options: [],
-          external: false,
-          value: "",
-          required: true
-        },
-        surname: {
-          id: "surname",
-          name: "Surname",
-          extra: "",
-          type: "text",
-          autocomplete: "surname",
-          error: false,
-          options: [],
-          external: false,
-          value: "",
-          required: true
-        },
-        email: {
-          id: "email",
-          name: "Email",
-          extra: "",
-          type: "email",
-          autocomplete: "email",
-          error: false,
-          options: [],
-          external: false,
-          value: "",
-          required: true
-        },
+      fields_0: {
         placement_start_date: {
-          id: "placement_start_date",
-          name: "Date of Birth",
+            id: 'placement_start_date',
+            name: 'Training Start Date',
+            extra: '',
+            type: 'date',
+            autocomplete: 'off',
+            error: false,
+            options: [
+                {
+                    minDate: null,
+                    maxDate: (moment()).subtract(18, 'year' ).toDate(),
+                    // loadPage: (moment()).subtract('year', 18),
+                    loadPage: {
+                        month: ((moment()).subtract(18, 'year' ).month()+1),
+                        year: (moment()).subtract(18, 'year').year(),
+                    },
+                }
+            ],
+            external: false,
+            value: '',
+            required: true,
+        },
+        
+        placement_end_date: {
+          id: "placement_end_date",
+          name: "Training End Date",
           extra: "",
           type: "date",
           autocomplete: "off",
@@ -146,13 +101,97 @@ export default {
           external: false,
           value: "",
           required: true
+        },
+        forenames: {
+            id: 'forenames',
+            name: 'Forename(s)',
+            extra: '',
+            type: 'text',
+            autocomplete: 'forename',
+            error: false,
+            options: [],
+            external: false,
+            value: '',
+            required: true,
+        },
+        surname: {
+            id: 'surname',
+            name: 'Surname',
+            extra: '',
+            type: 'text',
+            autocomplete: 'surname',
+            error: false,
+            options: [],
+            external: false,
+            value: '',
+            required: true,
+        },
+        tutor_reg_number: {
+            id: "tutor_reg_number",
+            name: "Tutor Registration Number",
+            extra: "",
+            type: "text",
+            autocomplete: "tutor_reg_number",
+            error: false,
+            options: [],
+            external: false,
+            value: "",
+            required: true
+        },
+        premise_address: {
+            id: 'premise_address',
+            name: 'Premise Address',
+            extra: '(where training will take place)',
+            type: 'text',
+            autocomplete: 'off',
+            error: false,
+            options: [],
+            external: false,
+            value: '',
+            required: false,
+        },
+        premise_postcode: {
+            id: 'premise_postcode',
+            name: 'Premise Post Code',
+            extra: '',
+            type: 'text',
+            autocomplete: 'off',
+            error: false,
+            options: [],
+            external: false,
+            value: '',
+            required: false,
+        },
+        premise_postcode: {
+            id: 'premise_postcode',
+            name: 'Premise Post Code',
+            extra: '',
+            type: 'text',
+            autocomplete: 'off',
+            error: false,
+            options: [],
+            external: false,
+            value: '',
+            required: false,
+        },
+        email: {
+            id: 'email',
+            name: 'Tutor/Pharmacy Email',
+            extra: '',
+            type: 'email',
+            autocomplete: 'email',
+            error: false,
+            options: [],
+            external: false,
+            value: '',
+            required: true,
         }
       },
       fields_1: {
-        pharmacist_declaration_1: {
-          id: "pharmacist_declaration_1",
+        pharmacy_declaration_1: {
+          id: "pharmacy_declaration_2",
           name:
-            "Training will be at the pharmacy premises specified with no more than two weeks spent at branch of my business and in total, no more than six weeks away from the main training site (pro rata for six month placement)",
+            "I confrim that I have agreed to be the tutor for the above name trainee in the above names premises for the dates indicated.",
           extra: "",
           type: "boolean",
           autocomplete: "off",
@@ -162,12 +201,10 @@ export default {
           value: "",
           required: true
         },
-        },
-
-        pharmacist_declaration_2: {
-          id: "pharmacist_declaration_2",
+        pharmacy_declaration_2: {
+          id: "pharmacy_declaration_2",
           name:
-            "I declare that all of the information I give in this form and in any supporting documents is accurate.",
+            "I have been in practise in this sector of pharmacy for a minimum of 3 years",
           extra: "",
           type: "boolean",
           autocomplete: "off",
@@ -177,11 +214,10 @@ export default {
           value: "",
           required: true
         },
-
-        pharmacist_declaration_3: {
-          id: "pharmacist_declaration_3",
+        pharmacy_declaration_3: {
+          id: "pharmacy_declaration_3",
           name:
-            "I undertake to comply with the principles of the code & supplementary professional standards and guidance published by the Pharmaceutical Society's Council.",
+            "I have read and understood and agree to adhere to the Pharamaceutical Society's requirements and conditions for pre-registration tutors as described in the standards",
           extra: "",
           type: "boolean",
           autocomplete: "off",
@@ -191,11 +227,10 @@ export default {
           value: "",
           required: true
         },
-
-        pharmacist_declaration_4: {
-          id: "pharmacist_declaration_4",
+        pharmacy_declaration_4: {
+          id: "pharmacy_declaration_4",
           name:
-            "I undertake to notify the registrar of any changes to my name, home address or other contact details.",
+            "I confirm that i meet the Pharmaceutical Society's requirements for tutors (completed course)",
           extra: "",
           type: "boolean",
           autocomplete: "off",
@@ -205,11 +240,10 @@ export default {
           value: "",
           required: true
         },
-
-        pharmacist_declaration_5: {
-          id: "pharmacist_declaration_5",
+        pharmacy_declaration_5: {
+          id: "pharmacy_declaration_5",
           name:
-            "I undertake to notify the registrar of any character / fitness to practise matters within 7 days of any occurrence throughout my pre-registration year.",
+            "I confirm that I am compliant with the Pharmaceutical Society's Continuing Professional Development system",
           extra: "",
           type: "boolean",
           autocomplete: "off",
@@ -219,11 +253,10 @@ export default {
           value: "",
           required: true
         },
-
-        pharmacist_declaration_6: {
-          id: "pharmacist_declaration_6",
+        pharmacy_declaration_5: {
+          id: "pharmacy_declaration_5",
           name:
-            "I understand that if the declaration included in this application for pre-registration training is not completed to the satisfaction of the registrar, my application will not be processed.",
+            "I note the data protection statement as it applies to relevant information held about me",
           extra: "",
           type: "boolean",
           autocomplete: "off",
@@ -233,21 +266,7 @@ export default {
           value: "",
           required: true
         },
-
-        pharmacist_declaration_7: {
-          id: "pharmacist_declaration_7",
-          name:
-            "I understand that if I am found to have given false or misleading information in connection with my registration on the trainee register, this may be treated as misconduct for the purposes of the Pharmacy (NI) Order 1976, which my result in my removal from the student register.",
-          extra: "",
-          type: "boolean",
-          autocomplete: "off",
-          error: false,
-          options: [],
-          external: false,
-          value: "",
-          required: true
-        },
-
+        
         submit_step_4: {
           id: "submit_step_4",
           name: "Proceed to Next Step",
@@ -267,7 +286,7 @@ export default {
   methods: {
     eventHandler(fieldId) {
       switch (fieldId) {
-        case "submit_step_2":
+        case "submit_step_4":
           // disable the button which was clicked
           this.$emit("disabled", fieldId);
 
@@ -286,7 +305,7 @@ export default {
 
       var formData = new FormData();
 
-      formData.append("currentStep", "payment");
+      formData.append("currentStep", "pharmacy_declaration");
 
       for (const field in this.fields_0) {
         formData.append([this.fields_0[field].id], this.fields_0[field].value);
@@ -308,7 +327,7 @@ export default {
         .post("/registration", formData)
         .then(function(response) {
           // Proceed to next step
-          // console.log(response);
+          console.log(response);
 
           // Redirect to the Registration Payment
           window.location.replace("/registration");

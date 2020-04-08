@@ -109,7 +109,7 @@
                     </p>
                 </div>
                 <div class="d-flex justify-content-around">
-                    <a href="{{ route('register') }}">
+                    <a href="{{ url('start') }}">
                         <button class="button">Begin Application  >></button>
                     </a>
                     

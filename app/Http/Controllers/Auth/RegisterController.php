@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -76,7 +77,11 @@ class RegisterController extends Controller
         $university_placeholder->value = '';
         $university_placeholder->disabled = true;
 
+        if(Auth::check()) {
+            $user = $request->user();
+        $student = $user->student();
 
+        }
         $universities->prepend($university_placeholder);
 
         return view('auth.register', compact('counties', 'universities'));

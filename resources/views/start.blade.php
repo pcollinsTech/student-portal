@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>{{ config('app.name', 'Laravel') }}</title>
+         <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 54px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            
+
+            <h2>Before You Begin Your Application Please Read all the infomormation Below and confirm you have all items required from the checklist</h2>
+            <h3 class="primary text-center">HOW TO COMPLETE THIS APPLICATION FORM - PLEASE READ CAREFULLY</h3>
+        
+            <p class="text-center px-4">ALL FIELDS MUST BE FULLY AND CORRECTLY COMPLETED IN ORDER FOR AN APPLICATION TO BE ACCEPTED.</p>
+            <p class="text-center px-4">An applicant should NOT start training until they have Revieved confirmation from the Pharmaceutical Society that their application has been accepted and have provided confirmation of their MPharm award.</p>
+
+            <h3 class="primary text-center">Section A - Before Proceeding To Pre-registration Training</h3>
+
+            <p>All applicants must hold a degree in pharmacy, from a UK-based University recognised by the Pharmaceutical Society NI or the General Pharmaceutical Council. The Pharmaceutical Society NI must have written evidence that you have been awarded a degree from a recognised University before any period of pre-registration training can commence. Not all universities provide this information to the Pharmaceutical Society NI unless YOU request it (only QUB and UU provide confirmation). It is YOUR RESPONSIBILITY to ensure that we have this written evidence before you begin your training; otherwise we will be unable to recognise your start date.</p>
+
+            <p><b>Information for International students can be found on our website using the following link</b></p>
+
+            <a href="http://www.psni.org.uk/pre-registration/applying-to-register-as-trainee-of-the-society/" class="primary">http://www.psni.org.uk/pre-registration/applying-to-register-as-trainee-of-the-society/</a>
+
+            <h3 class="primary mt-2">1. Submitting my application?</h3>
+
+            <p>Submit your application as soon as you can to ensure there are no delays.</br>
+                The closing date for applications is 31st March 2020; applications will not be accepted after this date.</br>
+                If you have failed your MPharm/OSPAP and will be re-sitting please note that your application should be submitted by the deadline (31st March 2020).</p>
+
+            <h3 class="primary">2. How can I pay?</h3>
+            <p>Payment can be made by Credit debit card.</p>
+            <h3 class="primary">3. When can I start pre-registration training?</h3>
+<p>For the 2020-21 intake, pre-registration training may only start between 15 July 2020* and 14 September 2020. *If you start training before this date it will not count towards your 52 week total.</p>
+<h3 class="primary">4. Birth certificate?</h3>
+<p>The Pharmaceutical Society NI requires a solicitor’s certified photocopy of your original birth certificate to be uploaded during your online application.</p>
+<h3 class="primary">5. I have not yet passed my MPharm/OSPAP?</h3>
+<p>You can apply to start training before you know if you have passed your MPharm/OSPAP.</br>
+You cannot start training until you have passed your MPharm/OSPAP and the Pharmaceutical Society NI has been notified.</p>
+<h3 class="primary">6. I have failed my MPharm/OSPAP and will be re-sitting?</h3>
+<p>You cannot start training until you have passed your MPharm/OSPAP, therefore you will have to delay your start date. If you have failed you should contact your employer and make them aware and contact us to arrange an alternative start date within the designated period.</p>
+<h3 class="primary">7. Who can certify my degree certificate/OSPAP if already in my possession?</h3>
+<p>Information on who can certify your degree certificate and the requirements can be found via this link: https://www.psni.org.uk/wp-content/uploads/2012/10/Who-can-sign-DC-requirements-Oct-2013-1.pdf</p>
+<h3 class="primary">8. What are the training requirements/responsibilities of a Pre-registration Tutor?</h3>
+<p>The requirements/responsibilities are detailed in the Standards for Pre-registration Training (Sections 7 & 8)</p>
+<h3 class="primary">9. What do I do if I have been assigned two tutors?</h3>
+<p>Co-tutoring is permitted as long as, between the two tutors, the total hours worked meets the full-time requirement (30 hours over a minimum of four days). Both tutors must complete the ‘Tutor Details’ section and Learning Contract, they will share the responsibility and must co-sign the final declaration. A co-tutoring form must be completed and submitted with the application. The co-tutoring form can be accessed via link below: https://www.psni.org.uk/wp-content/uploads/2012/10/Co-tutor-Form-2018-1.pdf</p>
+<h3 class="primary">10.What do I need to submit if I have made a Fitness to Practise declaration?</h3>
+<p>If you have to ‘Yes’ to any of the questions in relation to charachter declaration you will need to provide a detailed account of the Fitness to Practise issues in the box provided.</p>
+<h3 class="primary">11.Who can certify my photograph?</h3>
+<p>All applicants must provide a recent passport photograph that has been certified on the reverse by an appropriate official.<br/>
+When accepting certified photographs, we follow the same standards of the UK Passport service. You will find details of who can certify your photo can be found on the Gov.uk website:</br>
+Countersigning photographs</br>
+Further information on the photograph requirements will be available in this section</p>
+<div class="d-flex justify-content-around">
+            <a href="{{ route('register') }}">
+                <button class="button">Begin Application  >></button>
+            </a>
+            
+        </div>
+        </div>
+
+    </body>
+</html>
