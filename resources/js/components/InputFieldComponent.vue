@@ -131,11 +131,7 @@
             <label :for="field.id" class="col-md-5 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
 
             <div class="col-md-7 text-right">
-<!--                <b-form-checkbox v-model="field.value" name="check-button" :options="field.options">-->
-<!--                    {{ niceBoolean }}-->
-<!--                </b-form-checkbox>-->
-
-                <b-form-group>
+                <!-- <b-form-group> -->
                     <b-form-radio-group
                         :id="field.id"
                         v-model="field.value"
@@ -203,15 +199,20 @@
 
                 handler(val) {
                     if(val.type == 'has_2_options') {
+                        
                         this.$emit(val.external, {
                             field: val.external,
                             value: val.value,
                         });
                     } else if(val.type == 'repeater') {
+                        console.log("VALLLLL", val)
                         this.repeaterListenNumberOfItems = val.value;
                         // probably want a foreach here with each of the val.options
+                        this.placement = val.options.__placements__pharmacy.value
+                        // foreach()
                         // and then the index in the [] will be val.value - 1
-                        val.options.__placements__pharmacy.value[1] = '';
+                    } else if (val.value == null) {
+                        this.repeaterListenNumberOfItems = 1;
                     }
                 },
             }
@@ -256,9 +257,10 @@
         computed: {
             repeaterNumberOfItems: function() {
                 if(typeof this.field.external == 'string') {
+
                     return this.repeaterListenNumberOfItems;
                 } else {
-                    return 1;
+                    return this.repeaterListenNumberOfItems;
                 }
             },
             niceBoolean: function() {

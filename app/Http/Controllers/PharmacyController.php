@@ -32,8 +32,9 @@ class PharmacyController extends Controller
     {
         $student = Student::findOrFail($id);
 
-       
         
-        return view('registration.06_pharmacy_acceptance', compact($student));
+        return view('registration.06_pharmacy_acceptance')
+            ->with('student', json_decode($student, true))
+            ->with("placement_start", "2020-07-15");
     }
 }

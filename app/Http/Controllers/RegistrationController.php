@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use App\Student;
 use App\User;
-use Spatie\Valuestore\Valuestore;
 
 
 class RegistrationController extends Controller
@@ -37,8 +36,6 @@ class RegistrationController extends Controller
     {
         if(Auth::check()) {
 
-            $pathToFile = storage_path('app/settings.json');
-            $valuestore = Valuestore::make($pathToFile);
 
             $user_status = Auth::user()->status;
 
@@ -81,32 +78,22 @@ class RegistrationController extends Controller
 
                     $pharmacies->prepend($pharmacy_placeholder);
 
-                    $placement_start = $valuestore->get('placement_start_date');
+                    $placement_start = "2020-07-15";
+                    $placement_end = "2020-09-14";
                     $variables = [
                         'pharmacies',
                         'placement_start',
+                        'placement_end',
                     ];
 //                    Set view to placement_details_required screen
                     $view = 'registration.05_placement_details';
                     break;
-                case 'pharmacy_acceptance_required':
-                    $view = 'registration.09_student_waiting';
-                    $uID = Auth::user();
-                    $student = User::findOrFail($uID->id)->student()->first();
-                    // dd($student);
-                    $variables = [
-                        'student',
-                    ];
-                    break;
+                case 'awaiting_acceptance':
+                    $view = 'finished';
+                    
+                break;
                 default:
-//                    Set view to default_waiting screen
-                    $uID = Auth::user();
-                    $student = User::findOrFail($uID->id)->student()->first();
-                    // dd($student);
-                    $variables = [
-                        'student',
-                    ];
-                    return 'registration.09_student_waiting';
+                   
                     break;
             }
 
@@ -126,7 +113,6 @@ class RegistrationController extends Controller
 //        Get the current step which has been posted to the application
         $currentStep = $request->currentStep;
         $user_status = '';
-
 //        Find existing registration if exists
         $registration = $student->registration();
 
@@ -199,17 +185,12 @@ class RegistrationController extends Controller
             case 'placement_details':
                 // Add Pharmacies -> Student Relationships
 
-                // dd($request->all());
+                $this->set_student_placements($request->all());
 
-                // $user_status = 'pharmacy_acceptance_required';
+                $user_status = 'awaiting_acceptance';
 
 
-//             case 'tutor_details':
-//                 $this->supporting_documents_save($registration, $request);
-
-//                 $user_status = 'tutor_acceptance_required';
-// //                $user_status = 'waiting_on_pharmacies';
-//                 break;
+//             
         }
 
 
@@ -227,6 +208,29 @@ class RegistrationController extends Controller
      */
     protected function character_declaration_validator(array $data)
     {
+
+        $messages = [
+            'required_if' => 'Evidence is required to support your claim of good character.',
+        ];
+
+        $attrs = [];
+
+        return Validator::make($data, [
+
+            '__character_declaration_1__details'=>   ['required_if:character_declaration_1,yes'],
+            '__character_declaration_2__details' => ['required_if:character_declaration_2,yes'],
+            '__character_declaration_3__details' => ['required_if:character_declaration_3,yes'],
+            '__character_declaration_4__details' => ['required_if:character_declaration_4,yes'],
+            '__character_declaration_5__details' => ['required_if:character_declaration_5,yes'],
+            '__character_declaration_6__details' => ['required_if:character_declaration_6,yes'],
+            '__character_declaration_7__details' => ['required_if:character_declaration_7,yes'],
+            '__character_declaration_8__details' => ['required_if:character_declaration_8,yes'],
+
+        ], $messages, $attrs);
+    }
+    protected function set_student_placements(array $data)
+    {
+        dd($data);
 
         $messages = [
             'required_if' => 'Evidence is required to support your claim of good character.',

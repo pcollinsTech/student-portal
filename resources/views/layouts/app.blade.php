@@ -33,11 +33,20 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                    <a href="{{ route('login') }}" style="color:white;">
-                        Login <i class="fa fa-sign-out pl-2"></i>
-                    </a>
-                    </ul>
+                    @if (Route::has('login'))
+                        <div class="top-right links">
+                            @auth
+                                <a href="{{ url('/registration') }}">Registration</a>
+                                <a href="{{ url('/logout') }}">Logout <i class="fa fa-sign-out pl-2"></i></a>
+                            @else
+                                <a href="{{ route('login') }}">Login</a>
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}">Register</a>
+                                @endif
+                            @endauth
+                        </div>
+                    @endif
 
              
                 </div>
@@ -49,5 +58,13 @@
         </main>
         
     </div>
+    <footer class="bg-dark">
+        <div class="container py-5">
+        
+        <div class="text-right">
+            <img src="/images/logo.png" alt="" style="height: 50px;">
+        </div>
+        </div>
+    </footer>
 </body>
 </html>

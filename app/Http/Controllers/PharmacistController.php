@@ -12,6 +12,8 @@ class PharmacistController extends Controller
 
        
         
-        return view('registration.07_pharmacist_acceptance', compact($student));
+        return view('registration.07_pharmacist_acceptance')
+            ->with('student', json_decode($student, true))
+            ->with("placement_start", "2020-07-15");
     }
 }

@@ -12,7 +12,8 @@ body{
 }
 
 .card-header{
-    color: #4f4f4f;
+    color: white;
+    background-color: #333333;
 }
 
 .clearfix {
@@ -33,4 +34,26 @@ body{
 }
 .primary {
     color: $primary;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.btn-info {
+    color:white;
+    background-color: $black;
+    font-size: 1.2rem;
+    padding: 10px 20px;
 }
