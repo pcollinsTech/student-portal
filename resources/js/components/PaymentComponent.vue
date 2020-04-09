@@ -8,9 +8,12 @@
           <div class="card-body">
             <p>A fee of £206 will be require to proceed</p>
 
-            <template v-for="field in fields_0">
+            <!-- <template v-for="field in fields_0">
               <input-field-component @submit="eventHandler($event)" :field="field"></input-field-component>
-            </template>
+            </template> -->
+            <button id="payButtonId" :clickclass="btn btn-success">
+              Pay
+            </button>
           </div>
         </div>
       </div>
@@ -24,8 +27,16 @@
 
 <script>
 import moment from "moment";
-
+import RealexHpp from "../helpers/rxp-js.js"
 export default {
+  created() {
+      getRealexData();
+    },
+
+  getRealexData(){
+    const jsonFromRequestEndpoint = {}
+      RealexHpp.lightbox.init("hihi", "responseEndpoint", jsonFromRequestEndpoint);
+  },
   mounted() {
     console.log("Component mounted.");
   },
@@ -60,7 +71,10 @@ export default {
     };
   },
 
+
   methods: {
+
+
     eventHandler(fieldId) {
       switch (fieldId) {
         case "submit_step_2":

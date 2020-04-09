@@ -17,12 +17,11 @@ class PaymentController extends Controller
 {
    public function processPayment(Request $request)
    {
-
       // configure client, request and HPP settings
       $config = new ServicesConfig();
-      $config->merchantId = $request->merchant_id;
+      $config->merchantId = env('MERCHANT_ID');
       $config->accountId = $request->account_id;
-      $config->sharedSecret = $request->account_id;
+      $config->sharedSecret = env('SHARED_SECRET');
       $config->serviceUrl = "https://pay.sandbox.realexpayments.com/pay";
       
       $config->hostedPaymentConfig = new HostedPaymentConfig();
@@ -37,8 +36,8 @@ class PaymentController extends Controller
       
       $billingAddress = new Address();
       $billingAddress->streetAddress1 = $request->street_address_1;
-      $billingAddress->streetAddress2 = $request->street_address_2;
-      $billingAddress->streetAddress3 = $request->street_address_3;
+      // $billingAddress->streetAddress2 = $request->street_address_2;
+      // $billingAddress->streetAddress3 = $request->street_address_3;
       $billingAddress->city = $request->billing_city;
       $billingAddress->postalCode = $request->billing_post_code;
       $billingAddress->country = $request->billing_country;

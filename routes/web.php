@@ -67,3 +67,6 @@ Route::get('/pharmacy-acceptance', function () {
 Route::get('/pharmacist-acceptance', function () {
     return new PharmacistAcceptanceMail();
 });
+
+
+Route::get('/payment', 'PaymentController@processPayment');
