@@ -138,11 +138,11 @@
             Countersigning photographs</br>
             Further information on the photograph requirements will be available in this section</p>
             <div class="d-flex justify-content-around">
-            <a href="{{ route('register') }}">
-                <button class="button">Begin Application  >></button>
-            </a>
-            
-        </div>
+                <a href="{{ route('register') }}">
+                    <button class="button">Begin Application  >></button>
+                </a>
+                
+            </div>
         </div>
         <footer class="bg-dark">
             <div class="container py-5">

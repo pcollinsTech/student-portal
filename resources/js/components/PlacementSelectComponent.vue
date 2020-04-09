@@ -20,6 +20,7 @@
     </div>
     <div class="row">
       <div class="col-sm-6"><a href="/back"><button class="btn btn-info">Back</button></a></div>
+      <div class="col-sm-6 text-right"><a href="/forward"><button class="btn btn-info">Forward</button></a></div>
     </div>
   </div>
 </template>
@@ -127,6 +128,42 @@ export default {
               external: false,
               value: [],
               required: false
+            },
+            __placements__end: {
+              id: "__placements__end",
+              name: "Placement end Date",
+              extra: "",
+              type: "date",
+              autocomplete: "off",
+              error: false,
+              options: [
+                {
+                  minDate: moment(this.placement_end).toDate(),
+                  maxDate: null,
+                  loadPage: {
+                    month: moment(this.placement_end).month() + 1,
+                    year: moment(this.placement_end).year()
+                  }
+                },
+                {
+                  minDate: moment(this.placement_end)
+                    .add(6, "month")
+                    .toDate(),
+                  maxDate: null,
+                  loadPage: {
+                    month:
+                      moment(this.placement_end)
+                        .add(6, "month")
+                        .month() + 1,
+                    year: moment(this.placement_end)
+                      .add(6, "month")
+                      .year()
+                  }
+                }
+              ],
+              external: false,
+              value: [],
+              required: false
             }
           },
           external: "number_of_placements",
@@ -151,8 +188,6 @@ export default {
 
   methods: {
     repeaterHandler(val) {
-      console.log("repeaterHandler val", val.value)
-      console.log("repeaterHandler field", val.field)
       this.fields_0[val.field].value = val.value;
     },
 
@@ -181,8 +216,6 @@ export default {
       for (const field in this.fields_0) {
         formData[this.fields_0[field].id] = this.fields_0[field].value;
         this.fields_0[field].error = false;
-        console.log("fields_0", this.fields_0)
-        console.log("FIELD", field)
         if (field === "placements") {
             let placmentId = this.fields_0[field].options[
               Object.keys(this.fields_0[field].options)[0]
@@ -190,17 +223,22 @@ export default {
             let time = this.fields_0[field].options[
               Object.keys(this.fields_0[field].options)[1]
             ];
+            let end = this.fields_0[field].options[
+              Object.keys(this.fields_0[field].options)[2]
+            ];
             
           if (this.fields_0.value === 2 ) {
             
             formData[field] = [
               { 
                 placement_id: placmentId.value[0],
-                placement_time: time.value[0],
+                placement_start: time.value[0],
+                placement_end: time.value[0],
               },
               { 
                 placement_id: placmentId.value[1],
-                placement_time: time.value[1],
+                placement_start: time.value[1],
+                placement_end: time.value[1],
               },
             ]
 
@@ -209,7 +247,8 @@ export default {
             
             formData[field] = [{ 
               placement_id: placmentId.value,
-              placement_time: time.value,
+              placement_start: time.value,
+              placement_end: time.value,
             }]
             placmentId.error = false;
             
@@ -225,7 +264,6 @@ export default {
         .post("/registration", formData)
         .then(function(response) {
           // Proceed to next step
-          console.log(response);
           // Redirect to the Registration Payment
           window.location.replace("/registration");
         })

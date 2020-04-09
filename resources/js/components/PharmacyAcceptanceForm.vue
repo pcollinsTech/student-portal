@@ -20,6 +20,8 @@
           <div class="card-header"><strong></strong>Pharmacy Declarations</div>
 
           <div class="card-body">
+                        <p class="text-right">* Click the box to accept.</p>
+
             <template v-for="field in fields_1">
               <input-field-component
                 @submit="eventHandler($event)"

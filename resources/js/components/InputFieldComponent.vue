@@ -128,9 +128,9 @@
         </template>
         <!--Has 2 Options-->
         <template v-else-if="field.type == 'has_2_options'">
-            <label :for="field.id" class="col-md-5 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
+            <label :for="field.id" class="col-md-12 col-form-label text-md-center">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
 
-            <div class="col-md-7 text-right">
+            <div class="col-md-12 text-center">
                 <!-- <b-form-group> -->
                     <b-form-radio-group
                         :id="field.id"
@@ -267,7 +267,7 @@
                 if(this.field.value) {
                     return 'Yes';
                 }
-                return 'No';
+                return '';
             },
             fieldStatus: function() {
                 if(this.field.error) {

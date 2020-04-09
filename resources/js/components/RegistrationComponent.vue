@@ -355,9 +355,9 @@
                         value: '',
                         required: true,
                     },
-                    entry_date: {
-                        id: 'entry_date',
-                        name: 'Date of Entry to Degree Course',
+                    completion_date: {
+                        id: 'completion_date',
+                        name: 'Degree Course Completion',
                         extra: '',
                         type: 'date',
                         autocomplete: 'off',
@@ -365,12 +365,12 @@
                         options: [
                             {
                                 minDate: (moment()).subtract(7, 'year' ).toDate(),
-                                maxDate: (moment()).subtract(4, 'year' ).toDate(),
+                                maxDate: (moment()).add(2, 'year' ).toDate(),
                                 // loadPage: (moment()).subtract('year', 18),
-                                loadPage: {
-                                    month: ((moment()).subtract(4, 'year' ).month()+1),
-                                    year: (moment()).subtract(4, 'year').year(),
-                                },
+                                // loadPage: {
+                                //     month: ((moment()).subtract(4, 'year' ).month()+1),
+                                //     year: (moment()).subtract(4, 'year').year(),
+                                // },
                             }
                         ],
                         external: false,

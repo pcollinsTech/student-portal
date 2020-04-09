@@ -24,7 +24,6 @@ class RegistrationOpen
 
 //            Redirect to landing page
             return redirect()->to('/');
-//            return route('home');
         }
         return $next($request);
     }

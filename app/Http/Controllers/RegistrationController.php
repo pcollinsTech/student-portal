@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Document;
 use App\Pharmacy;
+use App\Pharmacist;
 use App\Registration;
 use Illuminate\Http\Request;
 use Auth;
@@ -39,9 +40,8 @@ class RegistrationController extends Controller
 
             $user_status = Auth::user()->status;
 
-            $view = 'home';
+            $view = '';
             $variables = [];
-
             switch ($user_status) {
                 case 'payment_required':
                     //  Set view to payment_required screen
@@ -88,11 +88,36 @@ class RegistrationController extends Controller
 //                    Set view to placement_details_required screen
                     $view = 'registration.05_placement_details';
                     break;
+                case 'tutor_details_required':
+                    $tutors = Pharmacist::all();
+                    foreach ($tutors as $tutor) {
+                        $tutor->value = $tutor->id;
+                        $tutor->display = $tutor->forenames . ' (' . $tutor->surname . ')';
+                        $tutor->disabled = false;
+                    }
+
+                    $tutor_placeholder = new Pharmacist;
+                    $tutor_placeholder->display = 'Select Tutor';
+                    $tutor_placeholder->value = '';
+                    $tutor_placeholder->disabled = true;
+
+                    $tutors->prepend($tutor_placeholder);
+
+                    $tutor_start = "2020-07-15";
+                    $tutor_end = "2020-09-14";
+                    $variables = [
+                        'tutors',
+                        'tutor_start',
+                        'tutor_end',
+                    ];
+//                    Set view to tutor_details_required screen
+                    $view = 'registration.06_tutor_details';
+                    break;
                 case 'awaiting_acceptance':
                     $view = 'finished';
-                    
-                break;
+                    break;
                 default:
+                $view = 'finished';
                    
                     break;
             }
@@ -185,10 +210,18 @@ class RegistrationController extends Controller
             case 'placement_details':
                 // Add Pharmacies -> Student Relationships
 
-                $this->set_student_placements($request->all());
+                // $this->set_student_placements($request->all());
 
+                $user_status = 'tutor_details_required';
+            case 'tutor_details':
+                // Add Pharmacies -> Student Relationships
+                
+                // $this->set_student_tutors($request->all());
+                
                 $user_status = 'awaiting_acceptance';
-
+            default;
+                $user_status = 'awaiting_acceptance';
+                // $user_status = 'tutor_details_required';
 
 //             
         }
@@ -230,7 +263,7 @@ class RegistrationController extends Controller
     }
     protected function set_student_placements(array $data)
     {
-        dd($data);
+        // dd($data);
 
         $messages = [
             'required_if' => 'Evidence is required to support your claim of good character.',
