@@ -89,7 +89,7 @@ class RegistrationController extends Controller
                     $view = 'registration.05_placement_details';
                     break;
                 case 'tutor_details_required':
-                    $tutors = Pharmacist::all();
+                    $tutors = Pharmacist::where('verified',true)->get();
                     foreach ($tutors as $tutor) {
                         $tutor->value = $tutor->id;
                         $tutor->display = $tutor->forenames . ' (' . $tutor->surname . ')';
@@ -210,7 +210,7 @@ class RegistrationController extends Controller
             case 'placement_details':
                 // Add Pharmacies -> Student Relationships
 
-                // $this->set_student_placements($request->all());
+                $this->set_student_placements($request->all());
 
                 $user_status = 'tutor_details_required';
             case 'tutor_details':
@@ -265,24 +265,10 @@ class RegistrationController extends Controller
     {
         // dd($data);
 
-        $messages = [
-            'required_if' => 'Evidence is required to support your claim of good character.',
-        ];
+       $student = Auth::user();
+       
 
-        $attrs = [];
-
-        return Validator::make($data, [
-
-            '__character_declaration_1__details'=>   ['required_if:character_declaration_1,yes'],
-            '__character_declaration_2__details' => ['required_if:character_declaration_2,yes'],
-            '__character_declaration_3__details' => ['required_if:character_declaration_3,yes'],
-            '__character_declaration_4__details' => ['required_if:character_declaration_4,yes'],
-            '__character_declaration_5__details' => ['required_if:character_declaration_5,yes'],
-            '__character_declaration_6__details' => ['required_if:character_declaration_6,yes'],
-            '__character_declaration_7__details' => ['required_if:character_declaration_7,yes'],
-            '__character_declaration_8__details' => ['required_if:character_declaration_8,yes'],
-
-        ], $messages, $attrs);
+      
     }
 
     /**

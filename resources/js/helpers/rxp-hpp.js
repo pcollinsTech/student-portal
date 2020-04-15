@@ -3,7 +3,7 @@
  * https://github.com/realexpayments/rxp-js
  * Licensed MIT
  */
-var RealexHpp = (function () {
+export default RealexHpp = (function () {
 
 	'use strict';
 

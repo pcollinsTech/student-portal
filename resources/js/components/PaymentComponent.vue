@@ -11,7 +11,7 @@
             <!-- <template v-for="field in fields_0">
               <input-field-component @submit="eventHandler($event)" :field="field"></input-field-component>
             </template> -->
-            <button id="payButtonId" :clickclass="btn btn-success">
+            <button id="payButtonId" class="btn btn-success">
               Pay
             </button>
           </div>
@@ -27,16 +27,16 @@
 
 <script>
 import moment from "moment";
-import RealexHpp from "../helpers/rxp-js.js"
+// import RealexHpp from "../helpers/rxp-hpp.js"
 export default {
-  created() {
-      getRealexData();
-    },
+  // created() {
+  //     getRealexData();
+  //   },
 
-  getRealexData(){
-    const jsonFromRequestEndpoint = {}
-      RealexHpp.lightbox.init("hihi", "responseEndpoint", jsonFromRequestEndpoint);
-  },
+  // getRealexData(){
+  //   const jsonFromRequestEndpoint = {}
+  //     RealexHpp.lightbox.init("hihi", "responseEndpoint", jsonFromRequestEndpoint);
+  // },
   mounted() {
     console.log("Component mounted.");
   },

@@ -3,13 +3,6 @@
 @section('content')
 
     <payment-component></payment-component>
-    <div class="card">
-    <div class="card-body">
-        <button id="hihi">
-            PAYYYY
-        </button>
-    </div>
-    </div>
 @endsection
 
 @section('scripts')

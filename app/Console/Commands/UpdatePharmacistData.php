@@ -60,6 +60,7 @@ class UpdatePharmacistData extends Command
                 "forenames" => $pharmacist->forenames,
                 "surname" => $pharmacist->surname,
                 "email" => $pharmacist->email,
+                "verified" => $pharmacist->isTutor,
             ]);
         }
 
