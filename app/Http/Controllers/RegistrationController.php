@@ -258,10 +258,17 @@ class RegistrationController extends Controller
     }
     protected function set_student_placements(array $data)
     {
-       $student = Auth::user()->student;
-
-//       $student->
-
+//       $student = Auth::user()->student();
+//        $placements = [];
+//        if ($data['number_of_placements'] == 1) {
+//
+//            array_push($placements, [
+//            ]);
+//
+//
+//        } else if ($data['number_of_placements'] > 1) {
+//
+//        }
 
        
 
@@ -433,6 +440,7 @@ class RegistrationController extends Controller
         return $registration->save();
         return true;
     }
+
 
     public function downloadPdf()
     {

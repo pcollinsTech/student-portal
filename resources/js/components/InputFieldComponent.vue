@@ -58,11 +58,15 @@
             <label :for="field.id" class="col-md-10 col-form-label text-md-right">{{ field.name }} <br><small v-if="field.extra">Viewable at the following <a :href="field.extra">link</a></small></label>
 
             <div class="col-md-2 text-right">
-                <b-form-checkbox v-model="field.value" name="check-button">
-                    {{ niceBoolean }}
-                </b-form-checkbox>
+<!--                <b-form-checkbox v-model="field.value" name="check-button">-->
+<!--                    {{ niceBoolean }}-->
+<!--                </b-form-checkbox>-->
+                <b-form-group >
+                    <b-form-radio v-model="field.value" :name="field.name" :value="true">Yes</b-form-radio>
+                    <b-form-radio v-model="field.value" :name="field.name" :value="false">No</b-form-radio>
+                </b-form-group>
 
-                <span v-if="field.error" class="invalid-feedback" role="alert">
+                <span v-if="field.error" class="invalid-feed?:back" role="alert">
                     <strong>{{ field.error }}</strong>
                 </span>
             </div>
@@ -76,9 +80,13 @@
             <label :for="field.id" class="col-md-10 col-form-label text-md-right">{{ field.name }} <br><small v-if="field.extra">Viewable at the following <a :href="field.extra">link</a></small></label>
 
             <div class="col-md-2 text-right">
-                <b-form-checkbox v-model="field.value" name="check-button" >
-                    {{ niceBoolean }}
-                </b-form-checkbox>
+                <b-form-group >
+                    <b-form-radio v-model="field.value" :name="field.name" :value="true">Yes</b-form-radio>
+                    <b-form-radio v-model="field.value" :name="field.name" :value="false">No</b-form-radio>
+                </b-form-group>
+<!--                <b-form-checkbox v-model="field.value" name="check-button" >-->
+<!--                    {{ niceBoolean }}-->
+<!--                </b-form-checkbox>-->
             </div>
             <div v-if="field.error" class="col-md-11 text-md-right">
                 <span class="invalid-feedback d-block mt-0" role="alert">

@@ -260,11 +260,11 @@ export default {
       // submit form here
       console.log(formData);
       axios
-        .post("/registrationTEST", formData)
+        .post("/registration", formData)
         .then(function(response) {
           // Proceed to next step
           // Redirect to the Registration Payment
-          window.location.replace("/registration");
+          // window.location.replace("/registration");
         })
         .catch(function(error) {
           // Set Error Messages
