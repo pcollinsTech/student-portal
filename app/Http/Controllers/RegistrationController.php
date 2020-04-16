@@ -209,25 +209,20 @@ class RegistrationController extends Controller
 
             case 'placement_details':
                 // Add Pharmacies -> Student Relationships
-
                 $this->set_student_placements($request->all());
 
                 $user_status = 'tutor_details_required';
+
+                break;
             case 'tutor_details':
                 // Add Pharmacies -> Student Relationships
                 
-                // $this->set_student_tutors($request->all());
-                
-                $user_status = 'awaiting_acceptance';
+//                 $this->set_student_tutors($request->all());
+                break;
             default;
                 $user_status = 'awaiting_acceptance';
-                // $user_status = 'tutor_details_required';
-
-//             
         }
 
-
-//        Update user status
        $user->setStatus($user_status);
 
         return $user_status;
@@ -263,9 +258,11 @@ class RegistrationController extends Controller
     }
     protected function set_student_placements(array $data)
     {
-        // dd($data);
+       $student = Auth::user()->student;
 
-       $student = Auth::user();
+//       $student->
+
+
        
 
       
@@ -372,7 +369,6 @@ class RegistrationController extends Controller
      */
     protected function health_declaration_save(Registration $registration, array $data)
     {
-
         $health_declarations = [
             'health_declaration_1' => $data['health_declaration_1'],
             'health_declaration_2' => $data['health_declaration_2'],
@@ -437,6 +433,7 @@ class RegistrationController extends Controller
         return $registration->save();
         return true;
     }
+
     public function downloadPdf()
     {
         $user = Auth::user();

@@ -4,9 +4,7 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">Placement Details</div>
-
           <div class="card-body">
-            
             <template v-for="field in fields_0">
               <input-field-component
                 @submit="eventHandler($event)"
@@ -209,11 +207,12 @@ export default {
 
     submitForm(submitTrigger) {
       // Clear all Errors
-      var formData = new FormData();
-
+      // var formData = new FormData();
+      var formData = {};
       formData.currentStep = "placement_details";
 
       for (const field in this.fields_0) {
+
         formData[this.fields_0[field].id] = this.fields_0[field].value;
         this.fields_0[field].error = false;
         if (field === "placements") {
@@ -228,14 +227,14 @@ export default {
             ];
             
           if (this.fields_0.value === 2 ) {
-            
+
             formData[field] = [
-              { 
+              {
                 placement_id: placmentId.value[0],
                 placement_start: time.value[0],
                 placement_end: time.value[0],
               },
-              { 
+              {
                 placement_id: placmentId.value[1],
                 placement_start: time.value[1],
                 placement_end: time.value[1],
@@ -245,11 +244,11 @@ export default {
 
           } else {
             
-            formData[field] = [{ 
+            formData[field] = [{
               placement_id: placmentId.value,
               placement_start: time.value,
               placement_end: time.value,
-            }]
+            }];
             placmentId.error = false;
             
           }
@@ -259,9 +258,9 @@ export default {
       }
 
       // submit form here
-    console.log(formData)
+      console.log(formData);
       axios
-        .post("/registration", formData)
+        .post("/registrationTEST", formData)
         .then(function(response) {
           // Proceed to next step
           // Redirect to the Registration Payment

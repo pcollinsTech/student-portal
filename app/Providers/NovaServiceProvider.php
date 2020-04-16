@@ -7,7 +7,7 @@ use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 use Andreasgj\NovaSettingsTool\SettingsTool;
-use Bighousecreative\RegistrationStatus\RegistrationStatus;
+//use Bighousecreative\RegistrationStatus\RegistrationStatus;
 use App\Nova\Metrics\NewRegistrations;
 use SimonHamp\LaravelNovaCsvImport\LaravelNovaCsvImport;
 
@@ -79,7 +79,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             new Help,
 //            new RegistrationStatus,
 //            new NewRegistrations,
-            (new RegistrationStatus)->currentRegistrationStatus(),
+//            (new RegistrationStatus)->currentRegistrationStatus(),
         ];
     }
 
