@@ -305,18 +305,6 @@ class BelongsToMany extends Field implements DeletableContract, ListableField, R
     }
 
     /**
-     * Return the validation key for the field.
-     *
-     * @return string
-     */
-    public function validationKey()
-    {
-        return $this->attribute != $this->resourceName
-            ? $this->resourceName
-            : $this->attribute;
-    }
-
-    /**
      * Prepare the field for JSON serialization.
      *
      * @return array
@@ -327,7 +315,6 @@ class BelongsToMany extends Field implements DeletableContract, ListableField, R
             'belongsToManyRelationship' => $this->manyToManyRelationship,
             'listable' => true,
             'perPage'=> $this->resourceClass::$perPageViaRelationship,
-            'validationKey' => $this->validationKey(),
             'resourceName' => $this->resourceName,
             'searchable' => $this->searchable,
             'singularLabel' => $this->singularLabel ?? Str::singular($this->name),

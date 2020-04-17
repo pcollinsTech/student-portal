@@ -4,15 +4,6 @@ namespace Laravel\Nova\Tests;
 
 abstract class MySqlIntegrationTest extends IntegrationTest
 {
-    protected function skipIfNotRunning()
-    {
-        if (! filter_var(getenv('RUN_MYSQL_TESTS'), FILTER_VALIDATE_BOOLEAN)) {
-            $this->markTestSkipped('MySQL tests not enabled.');
-
-            return;
-        }
-    }
-
     /**
      * Load the migrations for the test environment.
      *
@@ -22,8 +13,7 @@ abstract class MySqlIntegrationTest extends IntegrationTest
     {
         $this->loadMigrationsFrom([
             '--database' => 'mysql',
-            '--path' => realpath(__DIR__.'/Migrations'),
-            '--realpath' => true,
+            '--realpath' => realpath(__DIR__.'/Migrations'),
         ]);
     }
 
@@ -41,7 +31,7 @@ abstract class MySqlIntegrationTest extends IntegrationTest
             'driver' => 'mysql',
             'host' => '127.0.0.1',
             'port' => 3306,
-            'database' => $_ENV['MYSQL_DATABASE'] ?? 'nova_test',
+            'database' => 'nova_test',
             'username' => 'root',
             'password' => '',
             'unix_socket' => '',

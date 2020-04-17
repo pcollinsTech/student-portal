@@ -180,7 +180,7 @@ class MorphTo extends Field implements RelatableField
      */
     public function resolveForDisplay($resource, $attribute = null)
     {
-        $this->resolve($resource, $attribute);
+        //
     }
 
     /**

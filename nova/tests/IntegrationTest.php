@@ -7,8 +7,6 @@ use Illuminate\Queue\WorkerOptions;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 use Laravel\Nova\Nova;
-use Laravel\Nova\NovaCoreServiceProvider;
-use Laravel\Nova\NovaServiceProvider;
 use Laravel\Nova\Tests\Fixtures\AddressResource;
 use Laravel\Nova\Tests\Fixtures\BooleanResource;
 use Laravel\Nova\Tests\Fixtures\CommentResource;
@@ -100,11 +98,6 @@ abstract class IntegrationTest extends TestCase
         ]);
     }
 
-    protected function migrate()
-    {
-        $this->artisan('migrate')->run();
-    }
-
     /**
      * Authenticate as an anonymous user.
      *
@@ -167,9 +160,9 @@ abstract class IntegrationTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            NovaCoreServiceProvider::class,
-            NovaServiceProvider::class,
-            TestServiceProvider::class,
+            'Laravel\Nova\NovaCoreServiceProvider',
+            'Laravel\Nova\NovaServiceProvider',
+            'Laravel\Nova\Tests\TestServiceProvider',
         ];
     }
 
@@ -204,11 +197,6 @@ abstract class IntegrationTest extends TestCase
         $this->assertEquals($subset, $values, 'The expected subset does not match the given array.');
     }
 
-    /**
-     * Configure ActionEvents to be on a separate database connection.
-     *
-     * @return void
-     */
     protected function setupActionEventsOnSeparateConnection()
     {
         config(['nova.actions.resource' => CustomConnectionActionResource::class]);

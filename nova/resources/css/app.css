@@ -27,8 +27,8 @@
   --80: #7c858e;
   --90: #3c4b5f;
   --90-half: rgba(40, 54, 61, 0.5);
-  --warning-light: #fff382;
-  --warning-dark: #684f1d;
+  --warning-light: #fefcbf;
+  --warning-dark: #b7791f;
   --success-light: #c6f6d5;
   --success-dark: #38a169;
   --danger-light: #fed7d7;
@@ -292,7 +292,7 @@ textarea.form-input:read-only,
 }
 
 .btn-default {
-  @apply h-9 px-6 leading-9 rounded-lg shadow btn-text-shadow;
+  @apply h-9 px-6 leading-36 rounded-lg shadow btn-text-shadow;
 }
 
 .btn-disabled,
@@ -312,10 +312,6 @@ textarea.form-input:read-only,
 
 .btn-sm {
   @apply .h-btn-sm;
-}
-
-.btn-xs {
-  @apply h-6 px-3 text-xs rounded shadow btn-text-shadow;
 }
 
 .btn-lg {
@@ -738,10 +734,6 @@ textarea.form-input:read-only,
 
 .toasted.info {
   @apply bg-info nova;
-}
-
-.toasted.warning {
-  @apply bg-warning-light text-warning-dark py-2 rounded-lg shadow-lg;
 }
 
 .nova-action {

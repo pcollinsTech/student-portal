@@ -13,7 +13,7 @@ class DummyClass extends Resource
      *
      * @var string
      */
-    public static $model = \DummyFullModel::class;
+    public static $model = 'DummyFullModel';
 
     /**
      * The single value that should be used to represent the resource when being displayed.

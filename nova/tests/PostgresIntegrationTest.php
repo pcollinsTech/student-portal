@@ -4,15 +4,6 @@ namespace Laravel\Nova\Tests;
 
 abstract class PostgresIntegrationTest extends IntegrationTest
 {
-    protected function skipIfNotRunning()
-    {
-        if (! filter_var(getenv('RUN_POSTGRES_TESTS'), FILTER_VALIDATE_BOOLEAN)) {
-            $this->markTestSkipped('Postgres tests not enabled.');
-
-            return;
-        }
-    }
-
     /**
      * Load the migrations for the test environment.
      *
@@ -22,8 +13,7 @@ abstract class PostgresIntegrationTest extends IntegrationTest
     {
         $this->loadMigrationsFrom([
             '--database' => 'pgsql',
-            '--path' => realpath(__DIR__.'/Migrations'),
-            '--realpath' => true,
+            '--realpath' => realpath(__DIR__.'/Migrations'),
         ]);
     }
 
@@ -41,7 +31,7 @@ abstract class PostgresIntegrationTest extends IntegrationTest
             'driver' => 'pgsql',
             'host' => '127.0.0.1',
             'port' => 5432,
-            'database' => $_ENV['POSTGRES_DATABASE'] ?? 'nova_test',
+            'database' => 'nova_test',
             'username' => $_ENV['POSTGRES_USERNAME'] ?? 'taylor',
             'password' => '',
             'charset' => 'utf8',

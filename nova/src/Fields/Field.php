@@ -214,6 +214,10 @@ abstract class Field extends FieldElement implements JsonSerializable, Resolvabl
 
         $attribute = $attribute ?? $this->attribute;
 
+        if ($attribute === 'ComputedField') {
+            return;
+        }
+
         if (! $this->displayCallback) {
             $this->resolve($resource, $attribute);
         } elseif (is_callable($this->displayCallback)) {
@@ -690,16 +694,6 @@ abstract class Field extends FieldElement implements JsonSerializable, Resolvabl
     }
 
     /**
-     * Return the validation key for the field.
-     *
-     * @return string
-     */
-    public function validationKey()
-    {
-        return $this->attribute;
-    }
-
-    /**
      * Prepare the field for JSON serialization.
      *
      * @return array
@@ -712,7 +706,6 @@ abstract class Field extends FieldElement implements JsonSerializable, Resolvabl
             'indexName' => $this->name,
             'name' => $this->name,
             'attribute' => $this->attribute,
-            'validationKey' => $this->validationKey(),
             'value' => $this->value,
             'panel' => $this->panel,
             'sortable' => $this->sortable,

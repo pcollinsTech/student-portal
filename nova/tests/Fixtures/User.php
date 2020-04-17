@@ -74,11 +74,6 @@ class User extends Authenticatable
                             ->using(RoleAssignment::class);
     }
 
-    public function userRoles()
-    {
-        return $this->roles();
-    }
-
     /**
      * Related users with each other via email.
      */

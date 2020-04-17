@@ -155,15 +155,6 @@ export default class Nova {
   }
 
   /**
-   * Show a warning message to the user.
-   *
-   * @param {string} message
-   */
-  warning(message) {
-    Vue.toasted.show(message, { type: 'warning' })
-  }
-
-  /**
    * Register a keyboard shortcut.
    */
   addShortcut(keys, callback) {

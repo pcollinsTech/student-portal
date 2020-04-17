@@ -5793,10 +5793,10 @@ laravel-mix@^1.0:
     webpack-notifier "^1.5.0"
     yargs "^8.0.1"
 
-laravel-nova@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/laravel-nova/-/laravel-nova-1.2.2.tgz#dd1aeb4d63f6e972f87c75ae3f163e747e13be1d"
-  integrity sha512-YKdoK3cBUgExwsOwE7OZCjDJbdJbcrxFiBIHRnzcQbcE1ASjlZYbU+eWksUlmbzaZn5x8cULbrvHDIGz0iilBw==
+laravel-nova@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/laravel-nova/-/laravel-nova-1.2.0.tgz#5fa71feacd843b71359beef1ca8508ef17a6507d"
+  integrity sha512-4XuUhV/vP1qu13uB7cN4Fu3xwewlQoeMwP1AZvrMsBCp5mhmUpaDk+4oaUOOmDZz1+/xLbAXMYR8PK9FIWlPGA==
   dependencies:
     babel-plugin-syntax-jsx "^6.18.0"
     form-backend-validation "^2.3.3"
@@ -6220,6 +6220,11 @@ markdown-it@^8.4.1:
     linkify-it "^2.0.0"
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
+
+marked@^0.6.2:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-0.6.3.tgz#79babad78af638ba4d522a9e715cdfdd2429e946"
+  integrity sha512-Fqa7eq+UaxfMriqzYLayfqAE40WN03jf+zHjT18/uXNuzjq3TY0XTbrAoPeqSJrAmPz11VuUA+kBPYOhHt9oOQ==
 
 math-expression-evaluator@^1.2.14:
   version "1.2.22"

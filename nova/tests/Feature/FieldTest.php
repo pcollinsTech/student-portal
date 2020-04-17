@@ -77,13 +77,6 @@ class FieldTest extends IntegrationTest
 
         $field->resolve((object) []);
         $this->assertEquals('Computed', $field->value);
-    }
-
-    public function test_computed_fields_resolve_for_display()
-    {
-        $field = Text::make('InvokableComputed', function ($resource) {
-            return 'Computed';
-        });
 
         $field->resolveForDisplay((object) []);
         $this->assertEquals('Computed', $field->value);
@@ -97,16 +90,9 @@ class FieldTest extends IntegrationTest
 
         $field->resolve((object) ['value' => 'Computed']);
         $this->assertEquals('Computed', $field->value);
-    }
-
-    public function test_computed_fields_resolve_for_display_with_resource()
-    {
-        $field = Text::make('InvokableComputed', function ($resource) {
-            return $resource->value;
-        });
 
         $field->resolveForDisplay((object) ['value' => 'Other value']);
-        $this->assertEquals('Other value', $field->value);
+        $this->assertEquals('Computed', $field->value);
     }
 
     public function test_can_see_when_proxies_to_gate()
