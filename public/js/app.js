@@ -5117,20 +5117,24 @@ __webpack_require__.r(__webpack_exports__);
 
         if (field === "tutors") {
           var placmentId = this.fields_0[field].options[Object.keys(this.fields_0[field].options)[0]];
-          var time = this.fields_0[field].options[Object.keys(this.fields_0[field].options)[1]];
+          var start = this.fields_0[field].options[Object.keys(this.fields_0[field].options)[1]];
+          var end = this.fields_0[field].options[Object.keys(this.fields_0[field].options)[2]];
 
           if (this.fields_0.value === 2) {
             formData[field] = [{
               tutor_id: placmentId.value[0],
-              tutor_time: time.value[0]
+              tutor_start: start.value[0],
+              tutor_end: end.value[0]
             }, {
               tutor_id: placmentId.value[1],
-              tutor_time: time.value[1]
+              tutor_start: start.value[1],
+              tutor_end: end.value[1]
             }];
           } else {
             formData[field] = [{
               tutor_id: placmentId.value,
-              tutor_time: time.value
+              tutor_start: start.value,
+              tutor_end: end.value
             }];
             placmentId.error = false;
           }
@@ -5142,7 +5146,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("/registration", formData).then(function (response) {
         // Proceed to next step
         console.log(response); // Redirect to the Registration Payment
-        // window.location.replace("/registration");
+
+        window.location.replace("/registration");
       })["catch"](function (error) {
         // Set Error Messages
         for (var currentError in error.response.data.errors) {

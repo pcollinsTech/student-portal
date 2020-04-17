@@ -297,6 +297,7 @@ class RegistrationController extends Controller
     {
         $student = Auth::user()->student();
         $pharmacists = [];
+
         // Changes to front end data format would be better than this...
         if ($data['number_of_tutors'] == 1) {
             $pharmacists[$data['tutors'][0]['tutor_id'][0]] = [
@@ -314,7 +315,7 @@ class RegistrationController extends Controller
             ];
         }
 
-        $student->tutors()->sync($pharmacists);
+        $student->pharmacists()->sync($pharmacists);
     }
     /**
      * Get a validator for an incoming health declaration request.
