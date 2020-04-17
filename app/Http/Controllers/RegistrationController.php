@@ -6,6 +6,7 @@ use App\Document;
 use App\Pharmacy;
 use App\Pharmacist;
 use App\Registration;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
 use PDF;
@@ -216,8 +217,7 @@ class RegistrationController extends Controller
                 break;
             case 'tutor_details':
                 // Add Pharmacies -> Student Relationships
-                
-//                 $this->set_student_tutors($request->all());
+                 $this->set_student_tutors($request->all());
                 break;
             default;
                 $user_status = 'awaiting_acceptance';
@@ -256,25 +256,66 @@ class RegistrationController extends Controller
 
         ], $messages, $attrs);
     }
+
+    /**
+     * Save student placements
+     *
+     * @param array $data
+     */
     protected function set_student_placements(array $data)
     {
-//       $student = Auth::user()->student();
-//        $placements = [];
-//        if ($data['number_of_placements'] == 1) {
-//
-//            array_push($placements, [
-//            ]);
-//
-//
-//        } else if ($data['number_of_placements'] > 1) {
-//
-//        }
+       $student = Auth::user()->student();
+        $placements = [];
 
-       
+        // Changes to front end data format would be better than this...
+        if ($data['number_of_placements'] == 1) {
+            $placements[$data['placements'][0]['placement_id'][0]] = [
+                'placement_start' => Carbon::parse($data['placements'][0]['placement_start'][0])->toDateTime(),
+                'placement_end' => Carbon::parse($data['placements'][0]['placement_end'][0])->toDateTime(),
+            ];
+        } else if ($data['number_of_placements'] > 1) {
+            $placements[$data['placements'][0]['placement_id'][0]] = [
+                'placement_start' => Carbon::parse($data['placements'][0]['placement_start'][0])->toDateTime(),
+                'placement_end' => Carbon::parse($data['placements'][0]['placement_end'][0])->toDateTime(),
+            ];
+            $placements[$data['placements'][0]['placement_id'][1]] = [
+                'placement_start' => Carbon::parse($data['placements'][0]['placement_start'][1])->toDateTime(),
+                'placement_end' => Carbon::parse($data['placements'][0]['placement_end'][1])->toDateTime(),
+            ];
+        }
 
-      
+        $student->pharmacies()->sync($placements);
+
     }
 
+    /**
+     * Save Student Tutor Data
+     *
+     * @param array $data
+     */
+    protected function set_student_tutors(array $data)
+    {
+        $student = Auth::user()->student();
+        $pharmacists = [];
+        // Changes to front end data format would be better than this...
+        if ($data['number_of_tutors'] == 1) {
+            $pharmacists[$data['tutors'][0]['tutor_id'][0]] = [
+                'placement_start' => Carbon::parse($data['tutors'][0]['tutor_start'][0])->toDateTime(),
+                'tutor_end' => Carbon::parse($data['tutors'][0]['tutor_end'][0])->toDateTime(),
+            ];
+        } else if ($data['number_of_tutors'] > 1) {
+            $pharmacists[$data['tutors'][0]['tutor_id'][0]] = [
+                'tutor_start' => Carbon::parse($data['tutors'][0]['tutor_start'][0])->toDateTime(),
+                'tutor_end' => Carbon::parse($data['tutors'][0]['tutor_end'][0])->toDateTime(),
+            ];
+            $pharmacists[$data['tutors'][0]['tutor_id'][1]] = [
+                'tutor_start' => Carbon::parse($data['tutors'][0]['tutor_start'][1])->toDateTime(),
+                'tutor_end' => Carbon::parse($data['tutors'][0]['tutor_end'][1])->toDateTime(),
+            ];
+        }
+
+        $student->tutors()->sync($pharmacists);
+    }
     /**
      * Get a validator for an incoming health declaration request.
      *

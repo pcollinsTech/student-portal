@@ -16,7 +16,8 @@ class CreatePharmacyStudentTable extends Migration
         Schema::create('pharmacy_student', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('pharmacy_id')->unsigned();        
-            $table->integer('student_id')->unsigned();        
+            $table->integer('student_id')->unsigned();
+
             $table->timestamps();
         });
     }

@@ -216,7 +216,12 @@
                         console.log("VALLLLL", val)
                         this.repeaterListenNumberOfItems = val.value;
                         // probably want a foreach here with each of the val.options
-                        this.placement = val.options.__placements__pharmacy.value
+                        this.placement = null; // hacky fix
+                        if (val.id === 'placement') {
+                            this.placement = val.options.__placements__pharmacy.value
+                        } else if (val.id === 'tutor') {
+                            this.placement = val.options.__tutors__selection.value
+                        }
                         // foreach()
                         // and then the index in the [] will be val.value - 1
                     } else if (val.value == null) {
