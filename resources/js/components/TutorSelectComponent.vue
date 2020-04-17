@@ -269,7 +269,7 @@ export default {
           // Proceed to next step
           console.log(response);
           // Redirect to the Registration Payment
-          // window.location.replace("/registration");
+          window.location.replace("/registration");
         })
         .catch(function(error) {
           // Set Error Messages
