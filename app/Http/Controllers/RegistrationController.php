@@ -301,7 +301,7 @@ class RegistrationController extends Controller
         // Changes to front end data format would be better than this...
         if ($data['number_of_tutors'] == 1) {
             $pharmacists[$data['tutors'][0]['tutor_id'][0]] = [
-                'placement_start' => Carbon::parse($data['tutors'][0]['tutor_start'][0])->toDateTime(),
+                'tutor_start' => Carbon::parse($data['tutors'][0]['tutor_start'][0])->toDateTime(),
                 'tutor_end' => Carbon::parse($data['tutors'][0]['tutor_end'][0])->toDateTime(),
             ];
         } else if ($data['number_of_tutors'] > 1) {

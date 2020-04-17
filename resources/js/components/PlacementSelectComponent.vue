@@ -264,7 +264,7 @@ export default {
         .then(function(response) {
           // Proceed to next step
           // Redirect to the Registration Payment
-          // window.location.replace("/registration");
+          window.location.replace("/registration");
         })
         .catch(function(error) {
           // Set Error Messages
