@@ -232,12 +232,12 @@ export default {
               {
                 placement_id: placmentId.value[0],
                 placement_start: time.value[0],
-                placement_end: time.value[0],
+                placement_end: end.value[0],
               },
               {
                 placement_id: placmentId.value[1],
                 placement_start: time.value[1],
-                placement_end: time.value[1],
+                placement_end: end.value[1],
               },
             ]
 
@@ -247,7 +247,7 @@ export default {
             formData[field] = [{
               placement_id: placmentId.value,
               placement_start: time.value,
-              placement_end: time.value,
+              placement_end: end.value,
             }];
             placmentId.error = false;
             

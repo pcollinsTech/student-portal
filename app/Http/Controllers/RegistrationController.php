@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use App\Student;
 use App\User;
-
+use Mail;
+use App\Mail\PharmacyAcceptanceMail;
+use App\Mail\PharmacistAcceptanceMail;
 
 class RegistrationController extends Controller
 {
@@ -263,16 +265,27 @@ class RegistrationController extends Controller
      */
     protected function set_student_placements(array $data)
     {
-       $student = Auth::user()->student();
+        $student = Auth::user()->student();
         $placements = [];
 
         // Changes to front end data format would be better than this...
         if ($data['number_of_placements'] == 1) {
+
+            // $pharmacy = $data['placements'][0]['placement_id'][0];
+            // Mail::to($pharmacy->email)->send(new PharmacyAcceptanceMail($student));
             $placements[$data['placements'][0]['placement_id'][0]] = [
+
                 'placement_start' => Carbon::parse($data['placements'][0]['placement_start'][0])->toDateTime(),
                 'placement_end' => Carbon::parse($data['placements'][0]['placement_end'][0])->toDateTime(),
             ];
         } else if ($data['number_of_placements'] > 1) {
+
+            // $pharmacy = $data['placements'][0]['placement_id'][0];
+            // $pharmacy2 = $data['placements'][0]['placement_id'][1];
+            // Mail::to($pharmacy->email)->send(new PharmacyAcceptanceMail($student));
+            // Mail::to($pharmacy2->email)->send(new PharmacyAcceptanceMail($student));
+
+
             $placements[$data['placements'][0]['placement_id'][0]] = [
                 'placement_start' => Carbon::parse($data['placements'][0]['placement_start'][0])->toDateTime(),
                 'placement_end' => Carbon::parse($data['placements'][0]['placement_end'][0])->toDateTime(),
@@ -299,11 +312,17 @@ class RegistrationController extends Controller
 
         // Changes to front end data format would be better than this...
         if ($data['number_of_tutors'] == 1) {
+            // $pharmacist = $data['tutors'][0]['tutor_id'][0];
+            // Mail::to($pharmacist->email)->send(new PharmacistAcceptanceMail($student));
             $pharmacists[$data['tutors'][0]['tutor_id'][0]] = [
                 'tutor_start' => Carbon::parse($data['tutors'][0]['tutor_start'][0])->toDateTime(),
                 'tutor_end' => Carbon::parse($data['tutors'][0]['tutor_end'][0])->toDateTime(),
             ];
         } else if ($data['number_of_tutors'] > 1) {
+            // $pharmacist = $data['tutors'][0]['tutor_id'][0];
+            // $pharmacist2 = $data['tutors'][0]['tutor_id'][1];
+            // Mail::to($pharmacist->email)->send(new PharmacistAcceptanceMail($student));
+            // Mail::to($pharmacist2->email)->send(new PharmacistAcceptanceMail($student));
             $pharmacists[$data['tutors'][0]['tutor_id'][0]] = [
                 'tutor_start' => Carbon::parse($data['tutors'][0]['tutor_start'][0])->toDateTime(),
                 'tutor_end' => Carbon::parse($data['tutors'][0]['tutor_end'][0])->toDateTime(),
