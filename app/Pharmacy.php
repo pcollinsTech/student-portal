@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Pharmacy extends Model
 {
+    use Notifiable;
+
     public $guarded = [
         'id'
     ];   
@@ -15,6 +18,7 @@ class Pharmacy extends Model
 
     public function students()
     {
-        return $this->belongsToMany(Student::class);
+        return $this->belongsToMany(Student::class)
+            ->using(PharmacyStudent::class);
     }
 }

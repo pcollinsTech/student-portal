@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <tutor-acceptance :student='@json($student)' placement_start="{{ $placement_start }}"></tutor-acceptance>
+    <tutor-acceptance :student='@json($tutor->student)' placement_start="{{ $tutor->tutor_start }}"></tutor-acceptance>
 
 @endsection

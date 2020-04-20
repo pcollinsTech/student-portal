@@ -64,6 +64,14 @@ Route::get('/pharmacy-acceptance', function () {
 });
 
 
+Route::get('/verify/pharmacy/{activationCode}', 'PharmacyStudentController@index');
+Route::put('/verify/pharmacy/{pharmacyStudent}', 'PharmacyStudentController@update');
+
+
+Route::get('/verify/tutor/{activationCode}', 'PharmacistStudentController@index');
+Route::put('/verify/tutor/{pharmacistStudent}', 'PharmacistStudentController@update');
+
+
 Route::get('/pharmacist-acceptance', function () {
     return new PharmacistAcceptanceMail();
 });
