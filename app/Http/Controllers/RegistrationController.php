@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use App\Student;
 use App\User;
-
+use Mail;
+use App\Mail\PharmacyAcceptanceMail;
+use App\Mail\PharmacistAcceptanceMail;
 
 class RegistrationController extends Controller
 {
@@ -264,16 +266,27 @@ class RegistrationController extends Controller
      */
     protected function set_student_placements(array $data)
     {
-       $student = Auth::user()->student();
+        $student = Auth::user()->student();
         $placements = [];
 
         // Changes to front end data format would be better than this...
         if ($data['number_of_placements'] == 1) {
+
+            // $pharmacy = $data['placements'][0]['placement_id'][0];
+            // Mail::to($pharmacy->email)->send(new PharmacyAcceptanceMail($student));
             $placements[$data['placements'][0]['placement_id'][0]] = [
+
                 'placement_start' => Carbon::parse($data['placements'][0]['placement_start'][0])->toDateTime(),
                 'placement_end' => Carbon::parse($data['placements'][0]['placement_end'][0])->toDateTime(),
             ];
         } else if ($data['number_of_placements'] > 1) {
+
+            // $pharmacy = $data['placements'][0]['placement_id'][0];
+            // $pharmacy2 = $data['placements'][0]['placement_id'][1];
+            // Mail::to($pharmacy->email)->send(new PharmacyAcceptanceMail($student));
+            // Mail::to($pharmacy2->email)->send(new PharmacyAcceptanceMail($student));
+
+
             $placements[$data['placements'][0]['placement_id'][0]] = [
                 'placement_start' => Carbon::parse($data['placements'][0]['placement_start'][0])->toDateTime(),
                 'placement_end' => Carbon::parse($data['placements'][0]['placement_end'][0])->toDateTime(),
