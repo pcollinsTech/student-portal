@@ -32,10 +32,13 @@ class RouteManagementController extends Controller
                 
                 case 'placement_details_required':
                     $user_status = "supporting_documents_required";
+
+                case 'tutor_details_required':
+                    $user_status = "placement_details_required";
                 break;
                 
                 case 'awaiting_acceptance':
-                    $user_status = "placement_details_required";
+                    $user_status = "tutor_details_required";
                     break;
                     
                 break;
@@ -69,6 +72,10 @@ class RouteManagementController extends Controller
                 
                 case 'supporting_documents_required':
                     $user_status ="placement_details_required";
+                break;
+                
+                case 'placement_details_required':
+                    $user_status ="tutor_details_required";
                 break;
                     
                 break;
