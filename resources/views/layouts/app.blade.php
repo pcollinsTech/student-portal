@@ -54,6 +54,20 @@
         </nav>
 
         <main class="py-4">
+            @if($errors->any())
+                <div class="container">
+                    <div class="alert alert-danger text-center">
+                        {{$errors->first()}}
+                    </div>
+                </div>
+            @endif
+            @if(session()->has('message'))
+                    <div class="container">
+                        <div class="alert alert-success text-center">
+                            {{ session()->get('message') }}
+                        </div>
+                    </div>
+            @endif
             @yield('content')
         </main>
         

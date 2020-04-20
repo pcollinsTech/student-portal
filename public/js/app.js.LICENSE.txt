@@ -54,6 +54,12 @@
   * 
  */
 
+/*! rxp-js - v1.3.1 - 2018-08-30
+ * The official Realex Payments JS Library
+ * https://github.com/realexpayments/rxp-js
+ * Licensed MIT
+ */
+
 /**
  * @license
  * Lodash <https://lodash.com/>

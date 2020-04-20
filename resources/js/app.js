@@ -7,8 +7,11 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+
 import moment from 'moment'
+
 import VCalendar from 'v-calendar';
+
 import { BFormFile } from 'bootstrap-vue'
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'

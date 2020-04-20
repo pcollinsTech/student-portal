@@ -119,7 +119,6 @@ class RegistrationController extends Controller
                     break;
                 default:
                 $view = 'finished';
-                   
                     break;
             }
 
