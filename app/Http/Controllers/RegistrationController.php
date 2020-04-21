@@ -126,6 +126,10 @@ class RegistrationController extends Controller
                     break;
             }
 
+            $registration = Auth::user()->student->registration;
+
+            $variables[] = 'registration';
+
             return view($view, compact($variables));
         }
     }

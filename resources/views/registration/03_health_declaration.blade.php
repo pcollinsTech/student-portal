@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <health-declaration-component></health-declaration-component>
+    <health-declaration-component :initial-data="{{json_encode($registration)}}"></health-declaration-component>
 
 @endsection

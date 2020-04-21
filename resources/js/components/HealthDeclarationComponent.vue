@@ -31,6 +31,9 @@
         },
 
         props: {
+            initialData: {
+                type:Object
+            }
             // counties: {
             //     type: Array,
             //     required: true,
