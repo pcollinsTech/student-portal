@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <pharmacy-acceptance :student="{{ json_encode($student) }}" placement_start="{{ $placement_start }}"></pharmacy-acceptance>
+    <pharmacy-acceptance :student="{{ json_encode($placement->student) }}" :placement="{{ json_encode($placement) }}"></pharmacy-acceptance>
 
 @endsection

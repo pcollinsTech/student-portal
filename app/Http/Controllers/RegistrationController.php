@@ -19,6 +19,7 @@ use Mail;
 use App\Mail\PharmacyAcceptanceMail;
 use App\Mail\PharmacistAcceptanceMail;
 
+
 class RegistrationController extends Controller
 {
     /**

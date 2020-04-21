@@ -60,10 +60,14 @@ class Student extends Model
     
     public function pharmacies()
     {
-        return $this->belongsToMany(Pharmacy::class);
+        return $this->belongsToMany(Pharmacy::class)
+            ->withPivot(['activation_code', 'active', 'placement_start', 'placement_end'])
+            ->using(PharmacyStudent::class);;
     }
     public function pharmacists()
     {
-        return $this->belongsToMany(Pharmacist::class);
+        return $this->belongsToMany(Pharmacist::class)
+            ->withPivot(['activation_code', 'active', 'tutor_start', 'tutor_end'])
+            ->using(PharmacistStudent::class);
     }
 }
