@@ -39,8 +39,6 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('/registration', 'RegistrationController@showRegistrationForm')->name('registration');
 Route::post('/registration', 'RegistrationController@processRegistration');
 
-Route::get('/downloadSupportingPDF', 'RegistrationController@downloadPdf');
-
 Route::get('/', 'HomeController@index')->name('home');
 
 

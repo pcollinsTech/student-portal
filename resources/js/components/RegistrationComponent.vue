@@ -419,7 +419,7 @@
                     declaration_2: {
                         id: 'declaration_2',
                         name: 'I will abide by the Pharmaceutical Society\'s Code and I understand my obligations as detailed in the supplementary professional standards and guidance.',
-                        extra: '',
+                        extra: 'https://www.psni.org.uk/wp-content/uploads/2012/09/22504-PSNI-Code-of-Practice-Book-final.pdf',
                         type: 'boolean',
                         autocomplete: 'off',
                         error: false,
@@ -431,7 +431,7 @@
                     declaration_3: {
                         id: 'declaration_3',
                         name: 'I have read and understood and agree to adhere to the Pharmaceutical Society\'s Standards on Pre-registration Training.',
-                        extra: '',
+                        extra: 'https://www.psni.org.uk/wp-content/uploads/2012/10/PRE-REGISTRATION-STANDARDS-July-2012-revised-290419-FINAL.pdf',
                         type: 'boolean',
                         autocomplete: 'off',
                         error: false,

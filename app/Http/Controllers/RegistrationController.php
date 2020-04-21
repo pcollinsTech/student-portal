@@ -93,10 +93,10 @@ class RegistrationController extends Controller
                     $view = 'registration.05_placement_details';
                     break;
                 case 'tutor_details_required':
-                    $tutors = Pharmacist::where('verified',true)->get();
+                    $tutors = Pharmacist::where('verified',true)->orderBy('surname', 'asc')->get();
                     foreach ($tutors as $tutor) {
                         $tutor->value = $tutor->id;
-                        $tutor->display = $tutor->forenames . ' (' . $tutor->surname . ')';
+                        $tutor->display =  '(' . $tutor->surname . ') ' . $tutor->forenames;
                         $tutor->disabled = false;
                     }
 
@@ -358,8 +358,6 @@ class RegistrationController extends Controller
             'health_declaration_4' => ['accepted'],
             'health_declaration_5' => ['accepted'],
             'health_declaration_6' => ['accepted'],
-            'health_declaration_7' => ['accepted'],
-
         ], $messages, $attrs);
     }
 
@@ -419,7 +417,6 @@ class RegistrationController extends Controller
             'character_declaration_5' => $data['__character_declaration_5__details'],
             'character_declaration_6' => $data['__character_declaration_6__details'],
             'character_declaration_7' => $data['__character_declaration_7__details'],
-            'character_declaration_8' => $data['__character_declaration_8__details'],
         ];
 
         $registration->character_declarations = $character_declarations;
@@ -444,7 +441,6 @@ class RegistrationController extends Controller
             'health_declaration_4' => $data['health_declaration_4'],
             'health_declaration_5' => $data['health_declaration_5'],
             'health_declaration_6' => $data['health_declaration_6'],
-            'health_declaration_7' => $data['health_declaration_7'],
         ];
 
         $registration->health_declarations = $health_declarations;
@@ -500,17 +496,5 @@ class RegistrationController extends Controller
 
         return $registration->save();
         return true;
-    }
-
-
-    public function downloadPdf()
-    {
-        $user = Auth::user();
-
-        $student = Student::where('user_id', $user->id)->first();
-
-        $pdf = PDF::loadView('pdfs.photo_verification_form', ["student" => $student]);
-
-        return $pdf->download('photo_verification_form.pdf');
     }
 }

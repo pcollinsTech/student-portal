@@ -7,11 +7,15 @@
 
           <div class="card-body">
             <div>
-            <button
-              class="btn btn-success mb-4"
-              style="color: white"
-              v-on:click="downloadPdf"
-            >Download Certification Form</button>
+              <a href="/forms/photo_verification_form.pdf" download>
+                <button
+                  class="btn btn-success mb-4"
+                  style="color: white"
+                  v-on:click="downloadPdf"
+                >
+                  Download Certification Form
+                </button>
+              </a>
             <br/>
             </div>
             <template v-for="field in fields_0">
@@ -66,7 +70,7 @@ export default {
         document__birth_certificate: {
           id: "document__birth_certificate",
           name: "Original Birth Certificate",
-          extra: "Certified by a UK solicitor or notary public.",
+          extra: "Copy",
           type: "file_upload",
           autocomplete: "off",
           error: false,
@@ -79,7 +83,7 @@ export default {
           id: "document__proof_identity",
           name: "Proof of Identity Document",
           extra:
-            "Certified by a UK solicitor or notary public. A UK/EEA full or provisional photocard driving license, current valid passport (must show expiry and photo) or an EEA identity card will be accepted.",
+            "A UK/EEA full or provisional photocard driving license, current valid passport (must show expiry and photo) or an EEA identity card will be accepted.",
           type: "file_upload",
           autocomplete: "off",
           error: false,
@@ -90,9 +94,9 @@ export default {
         },
         document__passport_photograph: {
           id: "document__passport_photograph",
-          name: "Passport Photo",
+          name: "Passport Photograph to Verify Identity",
           extra:
-            "Follow the same standards as the UK Passport Service. Details of who can certify your photograph can be found on the gov.uk website.",
+            "To accompany verification form",
           type: "file_upload",
           autocomplete: "off",
           error: false,
@@ -142,15 +146,7 @@ export default {
 
           console.log(this.fields_0);
           break;
-        case "download_pdf":
-          // disable the button which was clicked
-          this.$emit("disabled", fieldId);
-
-          // submit the form
-          this.submitForm(fieldId);
-
-          console.log(this.fields_0);
-          break;
+        
 
         default:
           // do nothing if not defined
@@ -158,22 +154,7 @@ export default {
       }
     },
     // get the form download with their name na
-    downloadPdf(id) {
-      console.log("HIHI");
-      axios
-        .get("/downloadSupportingPDF", { responseType: "arraybuffer" })
-        .then(res => {
-          let blob = new Blob([res.data], {
-            type: "application/pdf"
-          });
-          let link = document.createElement("a");
-          link.href = window.URL.createObjectURL(blob);
-          link.download = "photo_verification_form.pdf";
-          link.click();
-          console.log("Response", res);
-        })
-        .catch(err => console.log("Error: ", err));
-    },
+   
 
     submitForm(submitTrigger) {
       // Clear all Errors

@@ -46,33 +46,20 @@
                 fields_0: {
                     health_declaration_1: {
                         id: 'health_declaration_1',
-                        name: 'Have you been subject to any sanction under student Fitness to Practise procedures whilst studying at university? Further guidance about what is considered a sanction can be found at:',
+                        name: 'I declare that all of the information I give in this form and in any supporting documents is accurate.',
                         extra: '',
-                        type: 'true_detail', // if true, show detail
+                        type: 'boolean',
                         autocomplete: 'off',
                         error: false,
-                        options: {
-                            __health_declaration_1__details: {
-                                id: '__health_declaration_1__details',
-                                name: 'If you are concerned that a physical or mental health problem may impair your ability to undertakr training, you must seek to clarify this with your physician or consultant and make a health declaration in writing to the Registrar. Any information supplied must be marked Confidential and for the attention of the Registrar only.',
-                                extra: 'Please note you may also be asked to undertake an occupational health assessment commissioned by the Pharmaceutical Society.',
-                                type: 'plaintext',
-                                autocomplete: 'off',
-                                error: false,
-                                options: [],
-                                external: false,
-                                value: '',
-                                required: false,
-                            }
-                        },
+                        options: [],
                         external: false,
-                        value: false,
-                        required: false,
+                        value: '',
+                        required: true,
                     },
 
                     health_declaration_2: {
                         id: 'health_declaration_2',
-                        name: 'I declare that all of the information I give in this form and in any supporting documents is accurate.',
+                        name: 'I undertake to comply with the principles of the code & supplementary professional standards and guidance published by the Pharmaceutical Society\'s Council.',
                         extra: '',
                         type: 'boolean',
                         autocomplete: 'off',
@@ -85,7 +72,7 @@
 
                     health_declaration_3: {
                         id: 'health_declaration_3',
-                        name: 'I undertake to comply with the principles of the code & supplementary professional standards and guidance published by the Pharmaceutical Society\'s Council.',
+                        name: 'I undertake to notify the registrar of any changes to my name, home address or other contact details.',
                         extra: '',
                         type: 'boolean',
                         autocomplete: 'off',
@@ -98,7 +85,7 @@
 
                     health_declaration_4: {
                         id: 'health_declaration_4',
-                        name: 'I undertake to notify the registrar of any changes to my name, home address or other contact details.',
+                        name: 'I undertake to notify the registrar of any character / fitness to practise matters within 7 days of any occurrence throughout my pre-registration year.',
                         extra: '',
                         type: 'boolean',
                         autocomplete: 'off',
@@ -111,7 +98,7 @@
 
                     health_declaration_5: {
                         id: 'health_declaration_5',
-                        name: 'I undertake to notify the registrar of any character / fitness to practise matters within 7 days of any occurrence throughout my pre-registration year.',
+                        name: 'I understand that if the declaration included in this application for pre-registration training is not completed to the satisfaction of the registrar, my application will not be processed.',
                         extra: '',
                         type: 'boolean',
                         autocomplete: 'off',
@@ -124,19 +111,6 @@
 
                     health_declaration_6: {
                         id: 'health_declaration_6',
-                        name: 'I understand that if the declaration included in this application for pre-registration training is not completed to the satisfaction of the registrar, my application will not be processed.',
-                        extra: '',
-                        type: 'boolean',
-                        autocomplete: 'off',
-                        error: false,
-                        options: [],
-                        external: false,
-                        value: '',
-                        required: true,
-                    },
-
-                    health_declaration_7: {
-                        id: 'health_declaration_7',
                         name: 'I understand that if I am found to have given false or misleading information in connection with my registration on the trainee register, this may be treated as misconduct for the purposes of the Pharmacy (NI) Order 1976, which my result in my removal from the student register.',
                         extra: '',
                         type: 'boolean',
