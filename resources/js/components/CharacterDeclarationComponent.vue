@@ -245,6 +245,18 @@
                         value: false,
                         required: false,
                     },
+                    character_declaration_9: {
+                        id: 'character_declaration_8',
+                        name: 'I declare that the information provided above is true. I know of NO REASON that might result in me being considered an unsuitable  person to undertake pre-registration training.',
+                        extra: '',
+                        type: 'boolean',
+                        autocomplete: 'off',
+                        error: false,
+                        options: [],
+                        external: false,
+                        value: '',
+                        required: true,
+                    },
                     submit_step_3: {
                         id: 'submit_step_3',
                         name: 'Proceed to Next Step',

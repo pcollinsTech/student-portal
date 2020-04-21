@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header">tutor Details</div>
+          <div class="card-header">Tutor Details</div>
 
           <div class="card-body">
             
@@ -52,9 +52,9 @@ export default {
       fields_0: {
         number_of_tutors: {
           id: "number_of_tutors",
-          name: "Number of Tutors.",
+          name: "Tutor Details",
           extra:
-            "Select if you will be undertaking your  at 1 Tutor for 12 months or 2 separate Tutors for 6 months each.",
+            "Select 1 Tutor for 12 months or 2 Tutors if undertaking two six month placements.",
           type: "has_2_options",
           autocomplete: "off",
           error: false,

@@ -93,13 +93,13 @@
         <div class="container mb-4" style="line-height: 2rem;">
             
 
-            <h3 class="text-center my-4">Before You Begin Your Application Please Read all the infomormation Below and confirm you have all items required from the checklist</h3>
+            <h3 class="text-center my-4">Before you begin your application please read all the infomormation below and confirm you have all items required from the checklist</h3>
             <h4 class="primary text-center my-4">HOW TO COMPLETE THIS APPLICATION FORM - PLEASE READ CAREFULLY</h4>
         
             <p class="text-center px-4">ALL FIELDS MUST BE FULLY AND CORRECTLY COMPLETED IN ORDER FOR AN APPLICATION TO BE ACCEPTED.</p>
-            <p class="text-center px-4">An applicant should NOT start training until they have Revieved confirmation from the Pharmaceutical Society that their application has been accepted and have provided confirmation of their MPharm award.</p>
+            <p class="text-center px-4">An applicant should NOT start training until they have recieved confirmation from the Pharmaceutical Society that their application has been accepted and have provided confirmation of their MPharm award.</p>
 
-            <h4 class="primary text-center">Section A - Before Proceeding To Pre-registration Training</h4>
+            <h4 class="primary text-center">Before Proceeding To Pre-registration Training</h4>
 
             <p>All applicants must hold a degree in pharmacy, from a UK-based University recognised by the Pharmaceutical Society NI or the General Pharmaceutical Council. The Pharmaceutical Society NI must have written evidence that you have been awarded a degree from a recognised University before any period of pre-registration training can commence. Not all universities provide this information to the Pharmaceutical Society NI unless YOU request it (only QUB and UU provide confirmation). It is YOUR RESPONSIBILITY to ensure that we have this written evidence before you begin your training; otherwise we will be unable to recognise your start date.</p>
 
@@ -116,7 +116,7 @@
             <h4 class="primary">2. How can I pay?</h4>
             <p>Payment can be made by Credit debit card.</p>
             <h4 class="primary">3. When can I start pre-registration training?</h4>
-            <p>For the 2020-21 intake, pre-registration training may only start between 15 July 2020* and 14 September 2020. *If you start training before this date it will not count towards your 52 week total.</p>
+            <p>For the 2020-21 intake, pre-registration training may only start between 15 July 2020* and 14 September 2020.<br/> *If you start training before this date it will not count towards your 52 week total.</p>
             <h4 class="primary">4. Birth certificate?</h4>
             <p>The Pharmaceutical Society NI requires a solicitor’s certified photocopy of your original birth certificate to be uploaded during your online application.</p>
             <h4 class="primary">5. I have not yet passed my MPharm/OSPAP?</h4>
@@ -125,7 +125,7 @@
             <h4 class="primary">6. I have failed my MPharm/OSPAP and will be re-sitting?</h4>
             <p>You cannot start training until you have passed your MPharm/OSPAP, therefore you will have to delay your start date. If you have failed you should contact your employer and make them aware and contact us to arrange an alternative start date within the designated period.</p>
             <h4 class="primary">7. Who can certify my degree certificate/OSPAP if already in my possession?</h4>
-            <p>Information on who can certify your degree certificate and the requirements can be found via this link: https://www.psni.org.uk/wp-content/uploads/2012/10/Who-can-sign-DC-requirements-Oct-2013-1.pdf</p>
+            <p>Information on who can certify your degree certificate and the requirements can be found via this link: <a href=" https://www.psni.org.uk/wp-content/uploads/2012/10/Who-can-sign-DC-requirements-Oct-2013-1.pdf" target="__blank">https://www.psni.org.uk/wp-content/uploads/2012/10/Who-can-sign-DC-requirements-Oct-2013-1.pdf</a> </p>
             <h4 class="primary">8. What are the training requirements/responsibilities of a Pre-registration Tutor?</h4>
             <p>The requirements/responsibilities are detailed in the Standards for Pre-registration Training (Sections 7 & 8)</p>
             <h4 class="primary">9. What do I do if I have been assigned two tutors?</h4>
@@ -134,12 +134,12 @@
             <p>If you have to ‘Yes’ to any of the questions in relation to charachter declaration you will need to provide a detailed account of the Fitness to Practise issues in the box provided.</p>
             <h4 class="primary">11.Who can certify my photograph?</h4>
             <p>All applicants must provide a recent passport photograph that has been certified on the reverse by an appropriate official.<br/>
-            When accepting certified photographs, we follow the same standards of the UK Passport service. You will find details of who can certify your photo can be found on the Gov.uk website:</br>
+            When accepting certified photographs, we follow the same standards of the UK Passport service. You will find details of who can certify your photo can be found on the <a href="https://gov.uk">Gov.uk</a> website:</br>
             Countersigning photographs</br>
             Further information on the photograph requirements will be available in this section</p>
             <div class="d-flex justify-content-around">
                 <a href="{{ route('register') }}">
-                    <button class="button">Begin Application  >></button>
+                    <button class="button">Register  >></button>
                 </a>
                 
             </div>

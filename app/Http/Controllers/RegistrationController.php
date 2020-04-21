@@ -92,10 +92,10 @@ class RegistrationController extends Controller
                     $view = 'registration.05_placement_details';
                     break;
                 case 'tutor_details_required':
-                    $tutors = Pharmacist::where('verified',true)->get();
+                    $tutors = Pharmacist::where('verified',true)->orderBy('surname', 'desc')->get();
                     foreach ($tutors as $tutor) {
                         $tutor->value = $tutor->id;
-                        $tutor->display = $tutor->forenames . ' (' . $tutor->surname . ')';
+                        $tutor->display =  ' (' . $tutor->surname . ')' . $tutor->forenames;
                         $tutor->disabled = false;
                     }
 
@@ -254,6 +254,7 @@ class RegistrationController extends Controller
             '__character_declaration_6__details' => ['required_if:character_declaration_6,yes'],
             '__character_declaration_7__details' => ['required_if:character_declaration_7,yes'],
             '__character_declaration_8__details' => ['required_if:character_declaration_8,yes'],
+            '__character_declaration_9__details' => ['required_if:character_declaration_9,yes'],
 
         ], $messages, $attrs);
     }
@@ -357,8 +358,6 @@ class RegistrationController extends Controller
             'health_declaration_4' => ['accepted'],
             'health_declaration_5' => ['accepted'],
             'health_declaration_6' => ['accepted'],
-            'health_declaration_7' => ['accepted'],
-
         ], $messages, $attrs);
     }
 
@@ -408,6 +407,7 @@ class RegistrationController extends Controller
             'character_declaration_6' => $data['character_declaration_6'],
             'character_declaration_7' => $data['character_declaration_7'],
             'character_declaration_8' => $data['character_declaration_8'],
+            'character_declaration_9' => $data['character_declaration_9'],
         ];
 
         $character_declaration_details = [
@@ -419,6 +419,7 @@ class RegistrationController extends Controller
             'character_declaration_6' => $data['__character_declaration_6__details'],
             'character_declaration_7' => $data['__character_declaration_7__details'],
             'character_declaration_8' => $data['__character_declaration_8__details'],
+            'character_declaration_9' => $data['__character_declaration_9__details'],
         ];
 
         $registration->character_declarations = $character_declarations;
@@ -443,7 +444,6 @@ class RegistrationController extends Controller
             'health_declaration_4' => $data['health_declaration_4'],
             'health_declaration_5' => $data['health_declaration_5'],
             'health_declaration_6' => $data['health_declaration_6'],
-            'health_declaration_7' => $data['health_declaration_7'],
         ];
 
         $registration->health_declarations = $health_declarations;
