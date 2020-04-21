@@ -81,8 +81,8 @@ class Student extends Resource
             Boolean::make('Previous Training', 'previous_training')
             ->hideFromIndex(),
             HasOne::make('Registration'),
-            BelongsToMany::make('Pharmacy'),
-            BelongsToMany::make('Pharmacist'),
+            BelongsToMany::make('Pharmacies'),
+            BelongsToMany::make('Pharmacists'),
         ];
     }
 
