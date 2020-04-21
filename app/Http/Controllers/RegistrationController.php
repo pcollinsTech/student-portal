@@ -42,9 +42,7 @@ class RegistrationController extends Controller
     {
         if(Auth::check()) {
 
-
             $user_status = Auth::user()->status;
-
             $view = '';
             $variables = [];
             switch ($user_status) {
@@ -120,6 +118,9 @@ class RegistrationController extends Controller
                     break;
                 case 'awaiting_acceptance':
                     $view = 'finished';
+                    break;
+                case 'confirmation';
+                    $view="registration.confirmation";
                     break;
                 default:
                 $view = 'finished';
@@ -226,14 +227,20 @@ class RegistrationController extends Controller
             case 'tutor_details':
                 // Add Pharmacies -> Student Relationships
                  $this->set_student_tutors($request->all());
+                $user_status = 'confirmation';
+                break;
+            case 'confirmation':
+                dd('here');
+                $user_status = 'awaiting_acceptance';
                 break;
             default;
                 $user_status = 'awaiting_acceptance';
         }
 
        $user->setStatus($user_status);
+        if (request()->expectsJson()) return response()->json($user_status);
+        return response()->redirectTo('registration');
 
-        return $user_status;
     }
 
     /**
@@ -273,7 +280,7 @@ class RegistrationController extends Controller
      */
     protected function set_student_placements(array $data)
     {
-        $student = Auth::user()->student();
+        $student = Auth::user()->student;
         $placements = [];
 
         // Changes to front end data format would be better than this...
@@ -315,7 +322,7 @@ class RegistrationController extends Controller
      */
     protected function set_student_tutors(array $data)
     {
-        $student = Auth::user()->student();
+        $student = Auth::user()->student;
         $pharmacists = [];
         // Changes to front end data format would be better than this...
         if ($data['number_of_tutors'] == 1) {
@@ -342,9 +349,8 @@ class RegistrationController extends Controller
                 'tutor_end' => Carbon::parse($data['tutors'][0]['tutor_end'][1])->toDateTime(),
             ];
         }
-
-
-        $student->pharmacists()->sync($pharmacists);
+//        dd($student->pharmacists);
+        $student->pharmacists()-> sync($pharmacists);
     }
     /**
      * Get a validator for an incoming health declaration request.

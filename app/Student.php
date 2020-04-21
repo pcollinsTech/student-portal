@@ -57,12 +57,16 @@ class Student extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function university() {
+        return $this->belongsTo(University::class);
+    }
     
     public function pharmacies()
     {
         return $this->belongsToMany(Pharmacy::class)
             ->withPivot(['activation_code', 'active', 'placement_start', 'placement_end'])
-            ->using(PharmacyStudent::class);;
+            ->using(PharmacyStudent::class);
     }
     public function pharmacists()
     {

@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class PharmacistStudent extends Pivot
 {
+    protected $casts = [
+        'tutor_end' => 'datetime',
+        'tutor_start' => 'datetime'
+    ];
     /**
      * The "booted" method of the model.
      *
