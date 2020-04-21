@@ -93,10 +93,10 @@ class RegistrationController extends Controller
                     $view = 'registration.05_placement_details';
                     break;
                 case 'tutor_details_required':
-                    $tutors = Pharmacist::where('verified',true)->orderBy('surname', 'desc')->get();
+                    $tutors = Pharmacist::where('verified',true)->orderBy('surname', 'asc')->get();
                     foreach ($tutors as $tutor) {
                         $tutor->value = $tutor->id;
-                        $tutor->display =  ' (' . $tutor->surname . ')' . $tutor->forenames;
+                        $tutor->display =  '(' . $tutor->surname . ') ' . $tutor->forenames;
                         $tutor->disabled = false;
                     }
 
@@ -255,7 +255,6 @@ class RegistrationController extends Controller
             '__character_declaration_6__details' => ['required_if:character_declaration_6,yes'],
             '__character_declaration_7__details' => ['required_if:character_declaration_7,yes'],
             '__character_declaration_8__details' => ['required_if:character_declaration_8,yes'],
-            '__character_declaration_9__details' => ['required_if:character_declaration_9,yes'],
 
         ], $messages, $attrs);
     }
@@ -408,7 +407,6 @@ class RegistrationController extends Controller
             'character_declaration_6' => $data['character_declaration_6'],
             'character_declaration_7' => $data['character_declaration_7'],
             'character_declaration_8' => $data['character_declaration_8'],
-            'character_declaration_9' => $data['character_declaration_9'],
         ];
 
         $character_declaration_details = [
@@ -419,8 +417,6 @@ class RegistrationController extends Controller
             'character_declaration_5' => $data['__character_declaration_5__details'],
             'character_declaration_6' => $data['__character_declaration_6__details'],
             'character_declaration_7' => $data['__character_declaration_7__details'],
-            'character_declaration_8' => $data['__character_declaration_8__details'],
-            'character_declaration_9' => $data['__character_declaration_9__details'],
         ];
 
         $registration->character_declarations = $character_declarations;
@@ -500,17 +496,5 @@ class RegistrationController extends Controller
 
         return $registration->save();
         return true;
-    }
-
-
-    public function downloadPdf()
-    {
-        $user = Auth::user();
-
-        $student = Student::where('user_id', $user->id)->first();
-
-        $pdf = PDF::loadView('pdfs.photo_verification_form', ["student" => $student]);
-
-        return $pdf->download('photo_verification_form.pdf');
     }
 }

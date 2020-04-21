@@ -45,10 +45,11 @@
         data() {
             return {
                 fields_0: {
+                   
                     character_declaration_1: {
                         id: 'character_declaration_1',
-                        name: 'Have you been subject to any sanction under student Fitness to Practise procedures whilst studying at university? Further guidance about what is considered a sanction can be found at:',
-                        extra: 'https://www.pharmacyregulation.org/sites/default/files/document/guidance_on_student_fitness_to_practise_procedures_in_schools_of_pharmacy_july_2018_.pdf',
+                        name: 'Are you currently bound over or do you have any convictions, cautions or informed warnings in the UK or in any other country which are not deemed \'protected\' under the Rehabilitation of Offenders (Exceptions) Order (NI) 1979 (as amended in 2014) or are not subject to \'filtering\' under tge Police Act 1997 (as amended)? Guidance on \'protected\' convictions and the \'filtering\' scheme can be found at:',
+                        extra: 'https://www.nidirect.gov.uk/articles/information-disclosed-in-a-criminal-record-check#toc-2',
                         type: 'true_detail', // if true, show detail
                         autocomplete: 'off',
                         error: false,
@@ -72,8 +73,8 @@
                     },
                     character_declaration_2: {
                         id: 'character_declaration_2',
-                        name: 'Are you currently bound over or do you have any convictions, cautions or informed warnings in the UK or in any other country which are not deemed \'protected\' under the Rehabilitation of Offenders (Exceptions) Order (NI) 1979 (as amended in 2014) or are not subject to \'filtering\' under tge Police Act 1997 (as amended)? Guidance on \'protected\' convictions and the \'filtering\' scheme can be found at:',
-                        extra: 'https://www.nidirect.gov.uk/articles/information-disclosed-in-a-criminal-record-check#toc-2',
+                        name: 'Are you the subject of ongoing or pending criminal proceedings in the UK or elsewhere (other than a motoring offence not likely to result in a disqualification), about which you have not previously advised the registrar in writing?',
+                        extra: '',
                         type: 'true_detail', // if true, show detail
                         autocomplete: 'off',
                         error: false,
@@ -97,7 +98,7 @@
                     },
                     character_declaration_3: {
                         id: 'character_declaration_3',
-                        name: 'Are you the subject of ongoing or pending criminal proceedings in the UK or elsewhere (other than a motoring offence not likely to result in a disqualification), about which you have not previously advised the registrar in writing?',
+                        name: 'Have you agreed to pay a penalty under Section 109a of the Social Security Administration (Northern Ireland) Order 1992 (penalty as an alternative to prosecution) about which you have not previosuly advised the registrar in writing?',
                         extra: '',
                         type: 'true_detail', // if true, show detail
                         autocomplete: 'off',
@@ -122,7 +123,7 @@
                     },
                     character_declaration_4: {
                         id: 'character_declaration_4',
-                        name: 'Have you agreed to pay a penalty under Section 109a of the Social Security Administration (Northern Ireland) Order 1992 (penalty as an alternative to prosecution) about which you have not previosuly advised the registrar in writing?',
+                        name: 'Have you been notified by a regulatory body in the UK responsible under any statutory provision for the regulation of a health or social care profession of a determination to the effect that your fitness to practise is impaired, or a determination by a regulatory body elsewhere to the same effect, about which you have not previously advised the registrar in writing?',
                         extra: '',
                         type: 'true_detail', // if true, show detail
                         autocomplete: 'off',
@@ -147,7 +148,7 @@
                     },
                     character_declaration_5: {
                         id: 'character_declaration_5',
-                        name: 'Have you been notified by a regulatory body in the UK responsible under any statutory provision for the regulation of a health or social care profession of a determination to the effect that your fitness to practise is impaired, or a determination by a regulatory body elsewhere to the same effect, about which you have not previously advised the registrar in writing?',
+                        name: 'Are you subject to an investigation by another regulatory body (other than the PSNI) about which you have not previously advised the registrar in writing?',
                         extra: '',
                         type: 'true_detail', // if true, show detail
                         autocomplete: 'off',
@@ -172,7 +173,7 @@
                     },
                     character_declaration_6: {
                         id: 'character_declaration_6',
-                        name: 'Are you subject to an investigation by another regulatory body (other than the PSNI) about which you have not previously advised the registrar in writing?',
+                        name: 'Are you the subject of any fraud investigation by an HSC body about whih you have not previously advised the registrar in writing?',
                         extra: '',
                         type: 'true_detail', // if true, show detail
                         autocomplete: 'off',
@@ -197,7 +198,7 @@
                     },
                     character_declaration_7: {
                         id: 'character_declaration_7',
-                        name: 'Are you the subject of any fraud investigation by an HSC body about whih you have not previously advised the registrar in writing?',
+                        name: 'Are you included in a barred list (within the meaning of the Safeguarding Vulnerable Groups Act 2006 or the Safeguarding Vulnerable Groups (Northern Ireland) Order 2007) about which you have not previously advised the registrar in writing?',
                         extra: '',
                         type: 'true_detail', // if true, show detail
                         autocomplete: 'off',
@@ -221,31 +222,6 @@
                         required: false,
                     },
                     character_declaration_8: {
-                        id: 'character_declaration_8',
-                        name: 'Are you included in a barred list (within the meaning of the Safeguarding Vulnerable Groups Act 2006 or the Safeguarding Vulnerable Groups (Northern Ireland) Order 2007) about which you have not previously advised the registrar in writing?',
-                        extra: '',
-                        type: 'true_detail', // if true, show detail
-                        autocomplete: 'off',
-                        error: false,
-                        options: {
-                            __character_declaration_8__details: {
-                                id: '__character_declaration_8__details',
-                                name: 'Provide any evidence that would help support your claim of good character for consideration by the registrar if not previously supplied.',
-                                extra: '',
-                                type: 'textarea',
-                                autocomplete: 'off',
-                                error: false,
-                                options: [],
-                                external: false,
-                                value: '',
-                                required: false,
-                            }
-                        },
-                        external: false,
-                        value: false,
-                        required: false,
-                    },
-                    character_declaration_9: {
                         id: 'character_declaration_8',
                         name: 'I declare that the information provided above is true. I know of NO REASON that might result in me being considered an unsuitable  person to undertake pre-registration training.',
                         extra: '',
