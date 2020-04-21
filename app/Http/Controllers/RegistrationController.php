@@ -68,10 +68,10 @@ class RegistrationController extends Controller
                     break;
 
                 case 'placement_details_required':
-                    $pharmacies = Pharmacy::all();
+                    $pharmacies = Pharmacy::orderBy('trading_name', 'asc')->get();
                     foreach ($pharmacies as $pharmacy) {
                         $pharmacy->value = $pharmacy->id;
-                        $pharmacy->display = $pharmacy->trading_name . ' (' . $pharmacy->post_code . ')';
+                        $pharmacy->display = $pharmacy->trading_name . ' (' . $pharmacy->address_1 . ", " . $pharmacy->post_code . ')';
                         $pharmacy->disabled = false;
                     }
 
@@ -136,13 +136,13 @@ class RegistrationController extends Controller
     public function processRegistration(Request $request)
     {
         $user = $request->user();
-        $student = $user->student();
+        $student = $user->student;
 
 //        Get the current step which has been posted to the application
         $currentStep = $request->currentStep;
         $user_status = '';
 //        Find existing registration if exists
-        $registration = $student->registration();
+        $registration = $student->registration;
 
 //        Create Registration if does not exist
         if($registration == null) {
@@ -255,7 +255,8 @@ class RegistrationController extends Controller
             '__character_declaration_6__details' => ['required_if:character_declaration_6,yes'],
             '__character_declaration_7__details' => ['required_if:character_declaration_7,yes'],
             '__character_declaration_8__details' => ['required_if:character_declaration_8,yes'],
-
+            '__character_declaration_9__details' => ['required_if:character_declaration_9,yes'],
+            
         ], $messages, $attrs);
     }
 
@@ -410,6 +411,7 @@ class RegistrationController extends Controller
             'character_declaration_6' => $data['character_declaration_6'],
             'character_declaration_7' => $data['character_declaration_7'],
             'character_declaration_8' => $data['character_declaration_8'],
+            'character_declaration_9' => $data['character_declaration_9'],
         ];
 
         $character_declaration_details = [
@@ -420,6 +422,7 @@ class RegistrationController extends Controller
             'character_declaration_5' => $data['__character_declaration_5__details'],
             'character_declaration_6' => $data['__character_declaration_6__details'],
             'character_declaration_7' => $data['__character_declaration_7__details'],
+            'character_declaration_8' => $data['__character_declaration_8__details'],
         ];
 
         $registration->character_declarations = $character_declarations;
@@ -492,7 +495,7 @@ class RegistrationController extends Controller
             ]);
             
             array_push($documents, (object)[
-                $file_type => $document->id
+                $file_type =>       $document->id
             ]);
         }
         $registration->documents = $documents;

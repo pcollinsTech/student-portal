@@ -47,7 +47,7 @@ class Student extends Model
      */
     public function registration()
     {
-        return $this->belongsTo('App\Registration')->first();
+        return $this->hasOne('App\Registration');
     }
 
     /**
@@ -55,7 +55,7 @@ class Student extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User')->first();
+        return $this->belongsTo('App\User');
     }
     
     public function pharmacies()

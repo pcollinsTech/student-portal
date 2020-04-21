@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasOne;
 
 class Student extends Resource
 {
@@ -80,7 +80,7 @@ class Student extends Resource
                 ->hideFromIndex(),
             Boolean::make('Previous Training', 'previous_training')
             ->hideFromIndex(),
-            // BelongsTo::make('Registration'),
+            HasOne::make('Registration'),
             BelongsToMany::make('Pharmacy'),
             BelongsToMany::make('Pharmacist'),
         ];
