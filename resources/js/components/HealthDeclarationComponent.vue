@@ -56,7 +56,7 @@
                         error: false,
                         options: [],
                         external: false,
-                        value: '',
+                        value: this.initialData.health_declarations.health_declaration_1 ? this.initialData.health_declarations.health_declaration_1 : null,
                         required: true,
                     },
 
