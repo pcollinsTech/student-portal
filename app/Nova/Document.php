@@ -3,27 +3,30 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\BelongsToMany;
 
-class Pharmacy extends Resource
+class Document extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Pharmacy';
+    public static $model = 'App\Document';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'trading_name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -31,7 +34,7 @@ class Pharmacy extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'registration_number', 'trading_name', 'post_code'
+        'id',
     ];
 
     /**
@@ -43,32 +46,9 @@ class Pharmacy extends Resource
     public function fields(Request $request)
     {
         return [
-//            ID::make()->sortable(),
-            Text::make('Registration Number', 'registration_number')
-                ->sortable(),
-            Text::make('Trading Name', 'trading_name')
-                ->sortable(),
-            Text::make('Address Line 1', 'address_1')
-                ->hideFromIndex(),
-            Text::make('Address Line 2', 'address_2'),
-            Text::make('Town / City', 'town')
-                ->sortable(),
-            Text::make('County', 'county')
-                ->hideFromIndex()
-                ->sortable(),
-            Text::make('Postcode', 'post_code')
-                ->hideFromIndex(),
-            Text::make('Email', 'email')
-                ->hideFromIndex()
-                ->rules('max:254'),
-                Text::make('Website', 'website')
-                ->hideFromIndex()
-                ->rules('max:254'),
-                Text::make('Phone Number', 'phone')
-                ->hideFromIndex()
-                ->rules('max:254'),
-            Text::make('Verified'),
-            BelongsToMany::make('Students')
+            Text::make('file_type'),
+            BelongsTo::make('Registration'),
+            File::make('file_path')->disk('local')
         ];
     }
 

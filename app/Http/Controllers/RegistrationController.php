@@ -9,6 +9,7 @@ use App\Registration;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\Storage;
 use PDF;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
@@ -475,9 +476,9 @@ class RegistrationController extends Controller
             $file_name = Auth::user()->id . '_' . $file_base;
 
 //            Store file as random string file name
-            $data->{$key}->storeAs('supporting_docs', $file_name);
+            $path = $data->{$key}->storeAs('supporting_docs', $file_name);
 
-//            Find existing document
+            //            Find existing document
             $document = Document::where('registration_id', '=', $registration->id)->where('file_type', '=', $file_type)->where('file_status', '=', 'active')->first();
 
 //            If 'old' document exists, mark as inactive
@@ -489,7 +490,7 @@ class RegistrationController extends Controller
 //            Create new document based on uploaded file
             $document = Document::create([
                 'registration_id'   => $registration->id,
-                'file_path'         => 'supporting_docs/' . $file_name,
+                'file_path'         => $path,
                 'file_type'         => $file_type,
                 'file_status'       =>  'active',
             ]);

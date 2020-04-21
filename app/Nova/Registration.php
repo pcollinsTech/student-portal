@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -74,6 +75,7 @@ class Registration extends Resource
                 Textarea::make('7', 'character_declaration_7'),
                 Textarea::make('8', 'character_declaration_8'),
             ], 'character_declaration_details'),
+            HasMany::make('Documents')
         ];
     }
 
