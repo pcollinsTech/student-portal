@@ -28,7 +28,28 @@ class PharmacistStudentController extends Controller
      * @param PharmacistStudent $pharmacistStudent
      */
     public function update(PharmacistStudent $pharmacistStudent) {
+        $validator = \Validator::make(request()->all(), [
+            'pharmacy_declaration_1' => 'required|accepted',
+            'pharmacy_declaration_2' => 'required|accepted',
+            'pharmacy_declaration_3' => 'required|accepted',
+            'pharmacy_declaration_4' => 'required|accepted',
+            'pharmacy_declaration_5' => 'required|accepted',
+            'pharmacist_reg_number' => [
+                'required',
+                function ($attribute, $value, $fail) use ($pharmacistStudent) {
+                    if ($value !== $pharmacistStudent->pharmacist->registration_number) {
+                        $fail('Registration Number is invalid.');
+                    }
+                },
+            ]
+        ]);
 
+        if ($validator->fails()) {
+            return response()->json($validator->messages(), 500);
+        }
+        $pharmacistStudent->active = true;
+        $pharmacistStudent->save();
+        return response()->json($pharmacistStudent, 200);
     }
 
 }

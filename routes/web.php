@@ -29,6 +29,7 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('start', function () {
     return view('start');
 });
+
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');

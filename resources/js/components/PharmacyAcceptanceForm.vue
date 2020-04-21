@@ -164,7 +164,6 @@
                 console.log(formData);
                 axios.put(`/verify/pharmacy/${this.placement.id}`, formData).then(({ data }) => {
                     this.active = data.active;
-
                 }).catch( (err) => {
                     this.errors = err.response.data;
                 });
