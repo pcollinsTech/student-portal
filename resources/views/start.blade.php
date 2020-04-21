@@ -18,7 +18,7 @@
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-weight: bolder;
                 height: 100vh;
                 margin: 0;
             }
@@ -132,7 +132,16 @@
             <p>Co-tutoring is permitted as long as, between the two tutors, the total hours worked meets the full-time requirement (30 hours over a minimum of four days). Both tutors must complete the ‘Tutor Details’ section and Learning Contract, they will share the responsibility and must co-sign the final declaration. A co-tutoring form must be completed and submitted with the application. The co-tutoring form can be accessed via link below: https://www.psni.org.uk/wp-content/uploads/2012/10/Co-tutor-Form-2018-1.pdf</p>
             <h4 class="primary">10.What do I need to submit if I have made a Fitness to Practise declaration?</h4>
             <p>If you have to ‘Yes’ to any of the questions in relation to charachter declaration you will need to provide a detailed account of the Fitness to Practise issues in the box provided.</p>
-            <h4 class="primary">11.Who can certify my photograph?</h4>
+            <h4 class="primary">11.Who can certify my photograph?</h4> 
+            <a href="/forms/photo_verification_form.pdf" download>
+                <button
+                  class="btn btn-success mb-4"
+                  style="color: white"
+                  v-on:click="downloadPdf"
+                >
+                  Download Certification Form
+                </button>
+              </a>
             <p>All applicants must provide a recent passport photograph that has been certified on the reverse by an appropriate official.<br/>
             When accepting certified photographs, we follow the same standards of the UK Passport service. You will find details of who can certify your photo can be found on the <a href="https://gov.uk">Gov.uk</a> website:</br>
             Countersigning photographs</br>

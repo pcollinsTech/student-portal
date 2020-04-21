@@ -114,7 +114,7 @@ export default {
         pharmacy_declaration_3: {
           id: "pharmacy_declaration_3",
           name:
-            "I have read and understood and agree to adhere to the Pharamaceutical Society's requirements and conditions for pre-registration tutors as described in the standards",
+            "I have read, understood and agree to adhere to the Pharamaceutical Society's requirements and conditions for pre-registration tutors as described in the standards",
           extra: "",
           type: "boolean",
           autocomplete: "off",

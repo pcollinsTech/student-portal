@@ -62,12 +62,12 @@
                                 error: false,
                                 options: [],
                                 external: false,
-                                value: '',
-                                required: false,
+                                value: this.initialData.character_declaration_details.character_declaration_1 ? this.initialData.character_declaration_details.character_declaration_1 : null,
+                                required: false
                             }
                         },
                         external: false,
-                        value: false,
+                        value: this.initialData.character_declarations.character_declaration_1 ? this.initialData.character_declarations.character_declaration_1 : null,
                         required: false,
                     },
                     character_declaration_2: {
@@ -87,12 +87,12 @@
                                 error: false,
                                 options: [],
                                 external: false,
-                                value: '',
+                                value: this.initialData.character_declaration_details.character_declaration_2 ? this.initialData.character_declaration_details.character_declaration_2 : null,
                                 required: false,
                             }
                         },
                         external: false,
-                        value: false,
+                        value: this.initialData.character_declarations.character_declaration_2 ? this.initialData.character_declarations.character_declaration_2 : null,
                         required: false,
                     },
                     character_declaration_3: {
@@ -112,12 +112,12 @@
                                 error: false,
                                 options: [],
                                 external: false,
-                                value: '',
+                                value: this.initialData.character_declaration_details.character_declaration_3 ? this.initialData.character_declaration_details.character_declaration_3 : null,
                                 required: false,
                             }
                         },
                         external: false,
-                        value: false,
+                        value: this.initialData.character_declarations.character_declaration_3 ? this.initialData.character_declarations.character_declaration_3 : null,
                         required: false,
                     },
                     character_declaration_4: {
@@ -137,12 +137,12 @@
                                 error: false,
                                 options: [],
                                 external: false,
-                                value: '',
+                                value: this.initialData.character_declaration_details.character_declaration_4 ? this.initialData.character_declaration_details.character_declaration_4 : null,
                                 required: false,
                             }
                         },
                         external: false,
-                        value: false,
+                        value: this.initialData.character_declarations.character_declaration_4 ? this.initialData.character_declarations.character_declaration_4 : null,
                         required: false,
                     },
                     character_declaration_5: {
@@ -162,12 +162,12 @@
                                 error: false,
                                 options: [],
                                 external: false,
-                                value: '',
+                                value: this.initialData.character_declaration_details.character_declaration_5 ? this.initialData.character_declaration_details.character_declaration_5 : null,
                                 required: false,
                             }
                         },
                         external: false,
-                        value: false,
+                        value: this.initialData.character_declarations.character_declaration_5 ? this.initialData.character_declarations.character_declaration_5 : null,
                         required: false,
                     },
                     character_declaration_6: {
@@ -187,12 +187,12 @@
                                 error: false,
                                 options: [],
                                 external: false,
-                                value: '',
+                                value: this.initialData.character_declaration_details.character_declaration_6 ? this.initialData.character_declaration_details.character_declaration_6 : null,
                                 required: false,
                             }
                         },
                         external: false,
-                        value: false,
+                        value: this.initialData.character_declarations.character_declaration_6 ? this.initialData.character_declarations.character_declaration_6 : null,
                         required: false,
                     },
                     character_declaration_7: {
@@ -212,12 +212,12 @@
                                 error: false,
                                 options: [],
                                 external: false,
-                                value: '',
+                                value: this.initialData.character_declaration_details.character_declaration_7 ? this.initialData.character_declaration_details.character_declaration_7 : null,
                                 required: false,
                             }
                         },
                         external: false,
-                        value: false,
+                        value: this.initialData.character_declarations.character_declaration_7 ? this.initialData.character_declarations.character_declaration_7 : null,
                         required: false,
                     },
                     character_declaration_8: {
@@ -237,12 +237,12 @@
                                 error: false,
                                 options: [],
                                 external: false,
-                                value: '',
+                                value: this.initialData.character_declaration_details.character_declaration_8 ? this.initialData.character_declaration_details.character_declaration_8 : null,
                                 required: false,
                             }
                         },
                         external: false,
-                        value: false,
+                        value: this.initialData.character_declarations.character_declaration_8 ? this.initialData.character_declarations.character_declaration_8 : null,
                         required: false,
                     },
                     character_declaration_9: {
@@ -254,7 +254,7 @@
                         error: false,
                         options: [],
                         external: false,
-                        value: '',
+                        value:this.initialData.character_declarations.character_declaration_9 ? this.initialData.character_declarations.character_declaration_9 : null,
                         required: true,
                     },
                     submit_step_3: {

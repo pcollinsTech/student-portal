@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <supporting-documents-component></supporting-documents-component>
+    <supporting-documents-component :initial-data="{{json_encode($registration)}}"></supporting-documents-component>
 
 @endsection

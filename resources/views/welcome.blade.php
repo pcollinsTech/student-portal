@@ -100,7 +100,7 @@
                     <img src="/images/logo.png" alt="">
                     <br/>
                     <p style="font-size: 2rem;">
-                        Welcome to the Online Application Portal to Register as a <br/>
+                        Welcome to the Online Application Portal to register as a <br/>
                         Pre-registration Trainee of the Pharmaceutical Society NI
                     </p>    
                     <br/>

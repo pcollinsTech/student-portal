@@ -430,7 +430,7 @@
                     },
                     declaration_3: {
                         id: 'declaration_3',
-                        name: 'I have read and understood and agree to adhere to the Pharmaceutical Society\'s Standards on Pre-registration Training.',
+                        name: 'I have read, understood and agree to adhere to the Pharmaceutical Society\'s Standards on Pre-registration Training.',
                         extra: 'https://www.psni.org.uk/wp-content/uploads/2012/10/PRE-REGISTRATION-STANDARDS-July-2012-revised-290419-FINAL.pdf',
                         type: 'boolean',
                         autocomplete: 'off',

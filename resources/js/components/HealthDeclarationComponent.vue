@@ -69,7 +69,7 @@
                         error: false,
                         options: [],
                         external: false,
-                        value: '',
+                        value: this.initialData.health_declarations.health_declaration_2 ? this.initialData.health_declarations.health_declaration_2 : null,
                         required: true,
                     },
 
@@ -82,7 +82,7 @@
                         error: false,
                         options: [],
                         external: false,
-                        value: '',
+                        value: this.initialData.health_declarations.health_declaration_3 ? this.initialData.health_declarations.health_declaration_3 : null,
                         required: true,
                     },
 
@@ -95,7 +95,7 @@
                         error: false,
                         options: [],
                         external: false,
-                        value: '',
+                        value: this.initialData.health_declarations.health_declaration_4 ? this.initialData.health_declarations.health_declaration_4 : null,
                         required: true,
                     },
 
@@ -108,7 +108,7 @@
                         error: false,
                         options: [],
                         external: false,
-                        value: '',
+                        value: this.initialData.health_declarations.health_declaration_5 ? this.initialData.health_declarations.health_declaration_5 : null,
                         required: true,
                     },
 
@@ -121,7 +121,7 @@
                         error: false,
                         options: [],
                         external: false,
-                        value: '',
+                        value: this.initialData.health_declarations.health_declaration_6 ? this.initialData.health_declarations.health_declaration_6 : null,
                         required: true,
                     },
 
