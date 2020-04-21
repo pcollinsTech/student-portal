@@ -34,7 +34,7 @@
             <label :for="field.id" class="col-md-5 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
 
             <div class="col-md-6">
-                <vc-date-picker :class="errorClass(field)" v-model="field.value" :popover="{ placement: 'bottom', visibility: 'click' }" :is-required="true" :from-page="field.options[0].loadPage" :max-date="field.options[0].maxDate" :min-date="field.options[0].minDate"/>
+                <vc-date-picker :class="errorClass(field)" v-model="field.value" :popover="{ placement: 'bottom', visibility: 'click' }" :is-required="true" :from-page="field.options[0].loadPage" :masks="{ input: ['DD/MM/YYYY']}" :max-date="field.options[0].maxDate" :min-date="field.options[0].minDate"/>
 
                 <span v-if="field.error" class="invalid-feedback" role="alert">
                     <strong>{{ field.error }}</strong>
