@@ -136,13 +136,13 @@ class RegistrationController extends Controller
     public function processRegistration(Request $request)
     {
         $user = $request->user();
-        $student = $user->student();
+        $student = $user->student;
 
 //        Get the current step which has been posted to the application
         $currentStep = $request->currentStep;
         $user_status = '';
 //        Find existing registration if exists
-        $registration = $student->registration();
+        $registration = $student->registration;
 
 //        Create Registration if does not exist
         if($registration == null) {
@@ -492,7 +492,7 @@ class RegistrationController extends Controller
             ]);
             
             array_push($documents, (object)[
-                $file_type => $document->id
+                $file_type =>       $document->id
             ]);
         }
         $registration->documents = $documents;
