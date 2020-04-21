@@ -44,6 +44,10 @@ export default {
     tutor_start: {
       type: String,
       required: true
+    },
+    tutor_end: {
+      type: String,
+      required: true
     }
   },
 
@@ -267,7 +271,6 @@ export default {
         .post("/registration", formData)
         .then(function(response) {
           // Proceed to next step
-          console.log(response);
           // Redirect to the Registration Payment
           window.location.replace("/registration");
         })

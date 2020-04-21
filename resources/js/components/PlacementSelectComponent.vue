@@ -43,6 +43,10 @@ export default {
     placement_start: {
       type: String,
       required: true
+    },
+    placement_end: {
+      type: String,
+      required: true
     }
   },
 

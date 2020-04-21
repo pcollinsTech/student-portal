@@ -310,9 +310,9 @@ class RegistrationController extends Controller
     {
         $student = Auth::user()->student();
         $pharmacists = [];
-
         // Changes to front end data format would be better than this...
         if ($data['number_of_tutors'] == 1) {
+
             // $pharmacist = $data['tutors'][0]['tutor_id'][0];
             // Mail::to($pharmacist->email)->send(new PharmacistAcceptanceMail($student));
             $pharmacists[$data['tutors'][0]['tutor_id'][0]] = [
@@ -320,6 +320,8 @@ class RegistrationController extends Controller
                 'tutor_end' => Carbon::parse($data['tutors'][0]['tutor_end'][0])->toDateTime(),
             ];
         } else if ($data['number_of_tutors'] > 1) {
+
+
             // $pharmacist = $data['tutors'][0]['tutor_id'][0];
             // $pharmacist2 = $data['tutors'][0]['tutor_id'][1];
             // Mail::to($pharmacist->email)->send(new PharmacistAcceptanceMail($student));
@@ -333,6 +335,7 @@ class RegistrationController extends Controller
                 'tutor_end' => Carbon::parse($data['tutors'][0]['tutor_end'][1])->toDateTime(),
             ];
         }
+
 
         $student->pharmacists()->sync($pharmacists);
     }
