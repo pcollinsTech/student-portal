@@ -65,7 +65,7 @@ class UpdatePharmacyData extends Command
                 "town" => $pharmacy->town,
                 "email" => $pharmacy->email,
                 "county" => $pharmacy->county,
-                "registration_number" => $pharmacist->regNumber,
+                "registration_number" => $pharmacy->regNumber,
                 "post_code" => $pharmacy->postCode,
             ]);
         }
