@@ -18,9 +18,6 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6"><a href="/register"><button class="btn btn-info">Back</button></a></div>
-        </div>
     </div>
 </template>
 <script>
