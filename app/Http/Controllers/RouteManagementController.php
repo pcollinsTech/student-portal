@@ -27,7 +27,7 @@ class RouteManagementController extends Controller
                 break;
 
                 case 'placement_details_required':
-                    $user_status = "supporting_documents_required";
+                    $user_status = "health_declaration_required";
 
                 case 'tutor_details_required':
                     $user_status = "placement_details_required";

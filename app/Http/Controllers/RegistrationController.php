@@ -276,6 +276,7 @@ class RegistrationController extends Controller
 
         $messages = [
             'required_if' => 'Evidence is required to support your claim of good character.',
+            'accepted' => 'You must agree to the above statement.'
         ];
 
         $attrs = [];
@@ -290,8 +291,7 @@ class RegistrationController extends Controller
             '__character_declaration_6__details' => ['required_if:character_declaration_6,yes'],
             '__character_declaration_7__details' => ['required_if:character_declaration_7,yes'],
             '__character_declaration_8__details' => ['required_if:character_declaration_8,yes'],
-            '__character_declaration_9__details' => ['required_if:character_declaration_9,yes'],
-            
+            'character_declaration_9' => ['accepted'],
         ], $messages, $attrs);
     }
 

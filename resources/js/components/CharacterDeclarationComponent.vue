@@ -200,7 +200,7 @@
                     },
                     character_declaration_7: {
                         id: 'character_declaration_7',
-                        name: 'Are you the subject of any fraud investigation by an HSC body about whih you have not previously advised the registrar in writing?',
+                        name: 'Are you the subject of any fraud investigation by an HSC body about with you have not previously advised the registrar in writing?',
                         extra: '',
                         type: 'true_detail', // if true, show detail
                         autocomplete: 'off',
