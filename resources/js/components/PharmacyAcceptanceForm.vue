@@ -42,7 +42,8 @@
                             Student has been successfully verified
                         </div>
                         <div v-else>
-                            <p class="text-right">* Click the box to accept.</p>
+                            <p class="text-right">Click on buttons to confirm.</p>
+                                <p>* represents required fields</p>
                             <template v-for="field in fields_1">
                                 <input-field-component
                                         @submit="eventHandler($event)"

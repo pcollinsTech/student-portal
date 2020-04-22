@@ -6,6 +6,8 @@
                     <div class="card-header">Personal Details</div>
 
                     <div class="card-body">
+                        <p>* represents required fields</p>
+                        
                         <template v-for="field in fields_0">
                             <input-field-component @submit="eventHandler($event)" :field="field"></input-field-component>
                         </template>

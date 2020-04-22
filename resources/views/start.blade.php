@@ -104,7 +104,21 @@
             <p>All applicants must hold a degree in pharmacy, from a UK-based University recognised by the Pharmaceutical Society NI or the General Pharmaceutical Council. The Pharmaceutical Society NI must have written evidence that you have been awarded a degree from a recognised University before any period of pre-registration training can commence. Not all universities provide this information to the Pharmaceutical Society NI unless YOU request it (only QUB and UU provide confirmation). It is YOUR RESPONSIBILITY to ensure that we have this written evidence before you begin your training; otherwise we will be unable to recognise your start date.</p>
 
             <p><b>Information for International students can be found on our website using the following link</b></p>
-
+            <ol>
+                <li>Birth Certificate </li>
+                <li>Passport Photographs (counter signatory information provided by clicking the button below ) </li>
+                <a href="/forms/photo_verification_form.pdf" download>
+                <button
+                  class="btn btn-success mb-4"
+                  style="color: white"
+                  v-on:click="downloadPdf"
+                >
+                  Download Certification Form
+                </button>
+              </a> 
+                <li>Passport (Visa if applicable)</li>
+                <li>Application fee of £206 payable by debit card</li>
+            </ol>
             <a href="http://www.psni.org.uk/pre-registration/applying-to-register-as-trainee-of-the-society/" class="primary">http://www.psni.org.uk/pre-registration/applying-to-register-as-trainee-of-the-society/</a>
 
             <h4 class="primary mt-2">1. Submitting my application?</h4>
@@ -129,7 +143,7 @@
             <h4 class="primary">8. What are the training requirements/responsibilities of a Pre-registration Tutor?</h4>
             <p>The requirements/responsibilities are detailed in the Standards for Pre-registration Training (Sections 7 & 8)</p>
             <h4 class="primary">9. What do I do if I have been assigned two tutors?</h4>
-            <p>Co-tutoring is permitted as long as, between the two tutors, the total hours worked meets the full-time requirement (30 hours over a minimum of four days). Both tutors must complete the ‘Tutor Details’ section and Learning Contract, they will share the responsibility and must co-sign the final declaration. A co-tutoring form must be completed and submitted with the application. The co-tutoring form can be accessed via link below: https://www.psni.org.uk/wp-content/uploads/2012/10/Co-tutor-Form-2018-1.pdf</p>
+            <p>Co-tutoring is permitted as long as, between the two tutors, the total hours worked meets the full-time requirement (30 hours over a minimum of four days). Both tutors must complete the ‘Tutor Details’ section and Learning Contract, they will share the responsibility and must co-sign the final declaration. A co-tutoring form must be completed and submitted with the application. The co-tutoring form can be accessed via link below: <a href="https://www.psni.org.uk/wp-content/uploads/2012/10/Co-tutor-Form-2018-1.pdf" target="__blank">https://www.psni.org.uk/wp-content/uploads/2012/10/Co-tutor-Form-2018-1.pdf    </a></p>
             <h4 class="primary">10.What do I need to submit if I have made a Fitness to Practise declaration?</h4>
             <p>If you have to ‘Yes’ to any of the questions in relation to charachter declaration you will need to provide a detailed account of the Fitness to Practise issues in the box provided.</p>
             <h4 class="primary">11.Who can certify my photograph?</h4> 

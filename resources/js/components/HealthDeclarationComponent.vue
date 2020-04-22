@@ -6,7 +6,8 @@
                     <div class="card-header"><strong>Confidential</strong> Health Declaration</div>
 
                     <div class="card-body">
-                        <p class="text-right">* Click the box to accept.</p>
+                        <p class="text-right">Click on buttons to confirm.</p>
+                        <p>* represents required fields</p>
 
                         <template v-for="field in fields_0">
                             <input-field-component @submit="eventHandler($event)" :field="field"></input-field-component>
