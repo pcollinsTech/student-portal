@@ -27,7 +27,6 @@
     </div>
     <div class="row">
       <div class="col-sm-6"><a href="/back"><button class="btn btn-info">Back</button></a></div>
-      <div class="col-sm-6 text-right"><a href="/forward"><button class="btn btn-info">Forward</button></a></div>
     </div>
   </div>
 </template>
@@ -120,7 +119,7 @@ export default {
         },
         submit_step_5: {
           id: "submit_step_5",
-          name: "Upload Documents",
+          name: "Upload Documents & Complete Application",
           extra: "",
           type: "submit",
           autocomplete: "off",

@@ -176,7 +176,7 @@ export default {
         },
         submit_step_6: {
           id: "submit_step_6",
-          name: "Complete Registration",
+          name: "Proceed to Next Step",
           extra: "",
           type: "submit",
           autocomplete: "off",
