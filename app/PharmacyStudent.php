@@ -20,11 +20,11 @@ class PharmacyStudent extends Pivot
     protected static function booted()
     {
         // On creation - send email to pharmacy for verification
-        static::created(function ($pharmacyStudent) {
-            $pharmacyStudent->activation_code = \Str::random(60);
-            $pharmacyStudent->save();
-            $pharmacyStudent->pharmacy->notify(new VerifyPharmacyStudent($pharmacyStudent));
-        });
+        // static::created(function ($pharmacyStudent) {
+        //     $pharmacyStudent->activation_code = \Str::random(60);
+        //     $pharmacyStudent->save();
+        //     $pharmacyStudent->pharmacy->notify(new VerifyPharmacyStudent($pharmacyStudent));
+        // });
     }
 
     /**
