@@ -20,7 +20,6 @@
         </div>
         <div class="row">
             <div class="col-sm-6"><a href="/register"><button class="btn btn-info">Back</button></a></div>
-            <div class="col-sm-6 text-right"><a href="/forward"><button class="btn btn-info">Forward</button></a></div>
         </div>
     </div>
 </template>
