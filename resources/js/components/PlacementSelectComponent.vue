@@ -262,7 +262,6 @@ export default {
       }
 
       // submit form here
-      console.log(formData);
       axios
         .post("/registration", formData)
         .then(function(response) {

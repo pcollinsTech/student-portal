@@ -20,6 +20,7 @@
     </div>
     <div class="row">
       <div class="col-sm-6"><a href="/back"><button class="btn btn-info">Back</button></a></div>
+      <div class="col-sm-6 text-right"><a href="/forward"><button class="btn btn-info">Forward</button></a></div>
     </div>
   </div>
 </template>
@@ -221,8 +222,6 @@ export default {
       for (const field in this.fields_0) {
         formData[this.fields_0[field].id] = this.fields_0[field].value;
         this.fields_0[field].error = false;
-        console.log("fields_0", this.fields_0)
-        console.log("FIELD", field)
         if (field === "tutors") {
             let placmentId = this.fields_0[field].options[
               Object.keys(this.fields_0[field].options)[0]
@@ -266,7 +265,6 @@ export default {
       }
 
       // submit form here
-    console.log(formData)
       axios
         .post("/registration", formData)
         .then(function(response) {

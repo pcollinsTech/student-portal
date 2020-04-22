@@ -43,8 +43,28 @@ class RegistrationController extends Controller
         if(Auth::check()) {
 
             $user_status = Auth::user()->status;
+            $student = Auth::user()->student;
+            $registration = $student->registration;
+
+//        Create Registration if does not exist
+        if($registration == null) {
+            $registration = Registration::create([
+                'student_id' => $student->id,
+                'payment_id' => 0,
+                'character_declarations' => json_encode([]),
+                'character_declaration_details' => json_encode([]),
+                'health_declarations' => json_encode([]),
+                'status' => '',
+            ]);
+
+//            Save the registration id to the student
+            $student->registration_id = $registration->id;
+            $student->save();
+        }
+            
             $view = '';
             $variables = [];
+
             switch ($user_status) {
                 case 'payment_required':
                     //  Set view to payment_required screen
@@ -61,16 +81,12 @@ class RegistrationController extends Controller
                     $view = 'registration.03_health_declaration';
                     break;
 
-                case 'supporting_documents_required':
-//                    Set view to supporting_documents_required screen
-                    $view = 'registration.04_supporting_documents';
-                    break;
-
+                
                 case 'placement_details_required':
                     $pharmacies = Pharmacy::orderBy('trading_name', 'asc')->get();
                     foreach ($pharmacies as $pharmacy) {
                         $pharmacy->value = $pharmacy->id;
-                        $pharmacy->display = $pharmacy->trading_name . ' (' . $pharmacy->address_1 . ", " . $pharmacy->post_code . ')';
+                        $pharmacy->display =  $pharmacy->trading_name . ' - ' . $pharmacy->registration_number . ' ' . ' (' . $pharmacy->address_1 . ", " . $pharmacy->post_code . ')';
                         $pharmacy->disabled = false;
                     }
 
@@ -95,7 +111,7 @@ class RegistrationController extends Controller
                     $tutors = Pharmacist::where('verified',true)->orderBy('surname', 'asc')->get();
                     foreach ($tutors as $tutor) {
                         $tutor->value = $tutor->id;
-                        $tutor->display =  '(' . $tutor->surname . ') ' . $tutor->forenames;
+                        $tutor->display = $tutor->surname . ', ' . $tutor->forenames . ' (' . $tutor->registration_number . ')';
                         $tutor->disabled = false;
                     }
 
@@ -116,6 +132,11 @@ class RegistrationController extends Controller
 //                    Set view to tutor_details_required screen
                     $view = 'registration.06_tutor_details';
                     break;
+                case 'supporting_documents_required':
+//                    Set view to supporting_documents_required screen
+                    $view = 'registration.04_supporting_documents';
+                    break;
+                        
                 case 'awaiting_acceptance':
                     $view = 'finished';
                     break;
@@ -127,11 +148,12 @@ class RegistrationController extends Controller
                     break;
             }
 
-            $student = Auth::user()->student;
-            $registration = $student->registration;
+            // $student = Auth::user()->student;
+            $registration =  Auth::user()->student->registration;
             $variables[] = 'registration';
-            $variables[] = 'student';
-
+            // dd($registration);
+            // $variables[] = 'student';
+            // array_push($variables, 'registration', 'student');
             return view($view, compact($variables));
         }
     }
@@ -200,10 +222,22 @@ class RegistrationController extends Controller
                 $this->health_declaration_save($registration, $request->all());
 
 //                Update user status
-                $user_status = 'supporting_documents_required';
+                $user_status = 'placement_details_required';
 
                 break;
 
+            case 'placement_details':
+                // Add Pharmacies -> Student Relationships
+                $this->set_student_placements($request->all());
+            
+                $user_status = 'tutor_details_required';
+            
+                break;
+            case 'tutor_details':
+                // Add Pharmacies -> Student Relationships
+                    $this->set_student_tutors($request->all());
+                $user_status = 'supporting_documents_required';
+                break;
             case 'supporting_documents':
 
 //                Validate the supporting documents
@@ -213,24 +247,12 @@ class RegistrationController extends Controller
                 $this->supporting_documents_save($registration, $request);
 
 //                Update user status
-                $user_status = 'placement_details_required';
-
-                break;
-
-            case 'placement_details':
-                // Add Pharmacies -> Student Relationships
-                $this->set_student_placements($request->all());
-
-                $user_status = 'tutor_details_required';
-
-                break;
-            case 'tutor_details':
-                // Add Pharmacies -> Student Relationships
-                 $this->set_student_tutors($request->all());
                 $user_status = 'confirmation';
+
                 break;
+
             case 'confirmation':
-                dd('here');
+                // dd('here');
                 $user_status = 'awaiting_acceptance';
                 break;
             default;
