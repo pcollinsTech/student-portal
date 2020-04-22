@@ -76,7 +76,7 @@ Route::get('/pharmacist-acceptance', function () {
 });
 
 
-Route::get('/payment/request', 'paymentController@requestPayment');
-Route::post('/payment/response', 'paymentController@processPayment');
+Route::get('/payment/request', 'PaymentController@requestPayment');
+Route::post('/payment/response', 'PaymentController@processPayment');
 
 //Route::get('/payment', 'PaymentController@processPayment');
