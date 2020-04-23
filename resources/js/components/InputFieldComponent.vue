@@ -77,7 +77,7 @@
         </template>
         <!--Boolean-->
         <template v-else-if="field.type == 'boolean'">
-            <label :for="field.id" class="col-md-10 col-form-label text-md-right">{{ field.name }} <br><small v-if="field.extra">Viewable at the following <a :href="field.extra"  target="__blank">link</a></small></label>
+            <label :for="field.id" class="col-md-10 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small v-if="field.extra">Viewable at the following <a :href="field.extra"  target="__blank">link</a></small></label>
 
             <div class="col-md-2 text-right">
                 <b-form-group >

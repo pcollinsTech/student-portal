@@ -59,6 +59,7 @@ class Student extends Resource
             Text::make('Surname')
                 ->sortable(),
             Text::make('Known As', 'known_as')
+                ->hideFromIndex()
                 ->sortable(),
             Text::make('Address Line 1','home_address_1')
                 ->hideFromIndex(),
