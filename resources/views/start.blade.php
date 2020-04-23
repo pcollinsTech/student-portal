@@ -128,7 +128,7 @@
                 If you have failed your MPharm/OSPAP and will be re-sitting please note that your application should be submitted by the deadline (31st March 2020).</p>
 
             <h4 class="primary">2. How can I pay?</h4>
-            <p>Payment can be made by Credit debit card.</p>
+            <p>Payment can be made by debit card.</p>
             <h4 class="primary">3. When can I start pre-registration training?</h4>
             <p>For the 2020-21 intake, pre-registration training may only start between 15 July 2020* and 14 September 2020.<br/> *If you start training before this date it will not count towards your 52 week total.</p>
             <h4 class="primary">4. Birth certificate?</h4>
