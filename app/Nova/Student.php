@@ -76,11 +76,14 @@ class Student extends Resource
                 ->hideFromIndex(),
             DateTime::make('Date of Birth', 'date_of_birth')
                 ->hideFromIndex(),
-            DateTime::make('Entry Date', 'entry_date')
+            DateTime::make('Degree Entry Date', 'entry_date')
                 ->hideFromIndex(),
+            // DateTime::make('Degree Completion Date', 'completion_date')
+            //     ->hideFromIndex(),
             Boolean::make('Previous Training', 'previous_training')
             ->hideFromIndex(),
             HasOne::make('Registration'),
+            // Has::make('Document'),
             BelongsToMany::make('Pharmacies'),
             BelongsToMany::make('Pharmacists'),
         ];

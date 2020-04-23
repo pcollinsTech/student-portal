@@ -8,7 +8,6 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\BelongsToMany;
 
 class Pharmacist extends Resource
 {
@@ -56,7 +55,6 @@ class Pharmacist extends Resource
             DateTime::make('Date Registered', 'date_registered')
                 ->hideFromIndex(),
             Boolean::make('Verified', 'verified'),
-            BelongsToMany::make('Student')
         ];
     }
 
