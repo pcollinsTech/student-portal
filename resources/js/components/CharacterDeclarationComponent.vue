@@ -84,7 +84,7 @@
                             __character_declaration_2__details: {
                                 id: '__character_declaration_2__details',
                                 name: 'Provide any evidence that would help support your claim of good character for consideration by the registrar if not previously supplied.',
-                                extra: '',
+                                extra: '(i) a motoring offence which has not resulted in disqualification; or     (ii) any other matter about which you have previously advised the registrar in writing.',
                                 type: 'textarea',
                                 autocomplete: 'off',
                                 error: false,

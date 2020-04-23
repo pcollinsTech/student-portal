@@ -93,7 +93,7 @@
         <div class="container mb-4" style="line-height: 2rem;">
             
 
-            <h3 class="text-center my-4">Before you begin your application please read all the infomormation below and confirm you have all items required from the checklist</h3>
+            <h3 class="text-center my-4">Before you begin your application please read all the information below and confirm you have all items required from the checklist</h3>
             <h4 class="primary text-center my-4">HOW TO COMPLETE THIS APPLICATION FORM - PLEASE READ CAREFULLY</h4>
         
             <p class="text-center px-4">ALL FIELDS MUST BE FULLY AND CORRECTLY COMPLETED IN ORDER FOR AN APPLICATION TO BE ACCEPTED.</p>
@@ -128,7 +128,7 @@
                 If you have failed your MPharm/OSPAP and will be re-sitting please note that your application should be submitted by the deadline (31st March 2020).</p>
 
             <h4 class="primary">2. How can I pay?</h4>
-            <p>Payment can be made by Credit debit card.</p>
+            <p>Payment can be made by debit card.</p>
             <h4 class="primary">3. When can I start pre-registration training?</h4>
             <p>For the 2020-21 intake, pre-registration training may only start between 15 July 2020* and 14 September 2020.<br/> *If you start training before this date it will not count towards your 52 week total.</p>
             <h4 class="primary">4. Birth certificate?</h4>
@@ -157,7 +157,7 @@
                 </button>
               </a>
             <p>All applicants must provide a recent passport photograph that has been certified on the reverse by an appropriate official.<br/>
-            When accepting certified photographs, we follow the same standards of the UK Passport service. You will find details of who can certify your photo can be found on the <a href="https://gov.uk">Gov.uk</a> website:</br>
+            When accepting certified photographs, we follow the same standards of the UK Passport service. You will find details of who can certify your photo can be found on the <a href="https://www.gov.uk/countersigning-passport-applications">Gov.uk</a> website:</br>
             Countersigning photographs</br>
             Further information on the photograph requirements will be available in this section</p>
             <div class="d-flex justify-content-around">
