@@ -40,6 +40,7 @@ export default {
   },
 
   props: {
+    loading:false,
     // counties: {
     //     type: Array,
     //     required: true,
@@ -53,19 +54,6 @@ export default {
   data() {
     return {
       fields_0: {
-        // supporting_documents: {
-        //   id: "supporting_documents",
-        //   name:
-        //     "Provide ability to generate and download counter signature document.",
-        //   extra: "",
-        //   type: "todo",
-        //   autocomplete: "off",
-        //   error: false,
-        //   options: [],
-        //   external: false,
-        //   value: "",
-        //   required: false
-        // },
         document__birth_certificate: {
           id: "document__birth_certificate",
           name: "Original Birth Certificate",
