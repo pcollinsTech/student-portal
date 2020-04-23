@@ -85,8 +85,18 @@ class Student extends Resource
             ->hideFromIndex(),
             HasOne::make('Registration'),
             // Has::make('Document'),
-            BelongsToMany::make('Pharmacies'),
-            BelongsToMany::make('Pharmacists'),
+            BelongsToMany::make('Pharmacies')
+                ->fields(function() {
+                    return [
+                        Boolean::make('active'),
+                    ];
+                }),
+            BelongsToMany::make('Pharmacists')
+                ->fields(function() {
+                    return [
+                        Boolean::make('active'),
+                    ];
+                }),
         ];
     }
 
