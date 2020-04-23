@@ -15,8 +15,12 @@
                             Pay
                         </button>
                     </div>
+
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 text-right"><a href="/forward"><button class="btn btn-info">Forward</button></a></div>
         </div>
     </div>
 </template>
