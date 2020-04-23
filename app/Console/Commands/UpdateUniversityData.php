@@ -45,7 +45,7 @@ class UpdateUniversityData extends Command
 
         $client = new Client();
 
-        $res = $client->get('https://staging.psni.org.uk/api/university/get-university-details', [
+        $res = $client->get('https://members.psni.org.uk/api/university/get-university-details', [
             'headers' => [
                 'X-Api-Key' => $key
             ]

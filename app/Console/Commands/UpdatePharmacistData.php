@@ -45,7 +45,7 @@ class UpdatePharmacistData extends Command
 
         $client = new Client(['X-Api-Key' => $key]);
 
-        $res = $client->get('https://staging.psni.org.uk/api/pharmacist/get-pharmacist-details', [
+        $res = $client->get('https://members.psni.org.uk/api/pharmacist/get-pharmacist-details', [
             'headers' => [
                 'X-Api-Key' => $key
             ]
