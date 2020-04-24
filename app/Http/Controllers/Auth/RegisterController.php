@@ -95,11 +95,12 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-
         $request['date_of_birth'] = Carbon::createFromFormat('D M d Y H:i:s e+', $request['date_of_birth']);
         $request['entry_date'] = Carbon::createFromFormat('D M d Y H:i:s e+', $request['entry_date']);
+        $request['completion_date'] = Carbon::createFromFormat('D M d Y H:i:s e+', $request['completion_date']);
 
         $this->validator($request->all())->validate();
+
 
         event(new Registered($user = $this->create($request->all())));
 
@@ -171,6 +172,7 @@ class RegisterController extends Controller
 
             'university_id'                                 => ['required', 'numeric'],
             'entry_date'                                    => ['required', 'date', 'before:-4 years', 'after:-7 years'],
+            'completion_date'                               => ['required', 'date'],
             '__previous_training__details'                  => ['required_if:previous_training,yes'],
 
             'declaration_1'                                 => ['accepted'],
@@ -212,6 +214,7 @@ class RegisterController extends Controller
             'date_of_birth'                 => Carbon::parse($data['date_of_birth']),
             'university_id'                 => $data['university_id'],
             'entry_date'                    => Carbon::parse($data['entry_date']),
+            'completion_date'                    => Carbon::parse($data['completion_date']),
             'previous_training'             => boolval($data['previous_training']),
             'previous_training_details'     => $data['__previous_training__details'],
             'terms'                         => json_encode([

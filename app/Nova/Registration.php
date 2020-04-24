@@ -55,8 +55,15 @@ class Registration extends Resource
                 Boolean::make('I undertake to notify the registrar of any character / fitness to practise matters within 7 days of any occurrence throughout my pre-registration year.', 'health_declaration_4'),
                 Boolean::make('I understand that if the declaration included in this application for pre-registration training is not completed to the satisfaction of the registrar, my application will not be processed.', 'health_declaration_5'),
                 Boolean::make('I understand that if I am found to have given false or misleading information in connection with my registration on the trainee register, this may be treated as misconduct for the purposes of the Pharmacy (NI) Order 1976, which my result in my removal from the student register.', 'health_declaration_6'),
-//                Boolean::make('7', 'health_declaration_7'),
             ], 'health_declarations')->showOnIndex(),
+            JSON::make('Health Declarations Details', [
+                Textarea::make('1', 'health_declaration_1'),
+                Textarea::make('2', 'health_declaration_2'),
+                Textarea::make('3', 'health_declaration_3'),
+                Textarea::make('4', 'health_declaration_4'),
+                Textarea::make('5', 'health_declaration_5'),
+                Textarea::make('6', 'health_declaration_6'),
+            ], 'health_declarations_details'),
             JSON::make('Character Declarations', [
                 Boolean::make('Have you been subject to any sanction under student Fitness to Practise procedures whilst studying at university? Further guidance about what is considered a sanction can be found at:', 'character_declaration_1'),
                 Boolean::make('Are you currently bound over or do you have any convictions, cautions or informed warnings in the UK or in any other country which are not deemed \'protected\' under the Rehabilitation of Offenders (Exceptions) Order (NI) 1979 (as amended in 2014) or are not subject to \'filtering\' under tge Police Act 1997 (as amended)? Guidance on \'protected\' convictions and the \'filtering\' scheme can be found at:', 'character_declaration_2'),

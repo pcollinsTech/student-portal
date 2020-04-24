@@ -75,14 +75,21 @@ class Student extends Resource
                 ->hideFromIndex(),
             Text::make('Phone Home','phone_home')
                 ->hideFromIndex(),
+            Text::make('University', 'university')->displayUsing(function($university) {
+                return $university->name;
+            }),
             DateTime::make('Date of Birth', 'date_of_birth')
+                ->format('D/M/Y')
                 ->hideFromIndex(),
             DateTime::make('Degree Entry Date', 'entry_date')
+                ->format('D/M/Y')
                 ->hideFromIndex(),
-            // DateTime::make('Degree Completion Date', 'completion_date')
-            //     ->hideFromIndex(),
+             DateTime::make('Degree Completion Date', 'completion_date')
+                 ->format('D/M/Y')
+                 ->hideFromIndex(),
             Boolean::make('Previous Training', 'previous_training')
             ->hideFromIndex(),
+            Text::make('Previous Training Details', 'previous_training_details'),
             HasOne::make('Registration'),
             // Has::make('Document'),
             BelongsToMany::make('Pharmacies')
