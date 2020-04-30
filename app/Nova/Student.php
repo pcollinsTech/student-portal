@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasOne;
+use App\Nova\Actions\PostStudent;
 
 class Student extends Resource
 {
@@ -148,6 +149,8 @@ class Student extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new PostStudent
+        ];
     }
 }

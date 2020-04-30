@@ -2,7 +2,11 @@
 
 namespace App\Console\Commands;
 
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
+use GuzzleHttp\RequestOptions;
 use Illuminate\Console\Command;
+use App\User;
 
 class PostVerifiedStudent extends Command
 {
@@ -41,9 +45,10 @@ class PostVerifiedStudent extends Command
         $key = env('MAIN_DB_API_KEY');
 
         $client = new Client(['X-Api-Key' => $key]);
-
+        
+        $userId = $this->argument('user');
         // Get data for sending
-        $user = User::findOrfail($id);
+        $user = User::findOrfail($userId);
 
         $student = $user->student();
 
