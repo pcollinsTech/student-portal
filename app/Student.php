@@ -77,5 +77,7 @@ class Student extends Model
             ->withPivot(['activation_code', 'active', 'tutor_start', 'tutor_end'])
             ->using(PharmacistStudent::class);
     }
-    
+
+
+   
 }

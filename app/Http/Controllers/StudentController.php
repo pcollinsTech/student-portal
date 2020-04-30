@@ -22,6 +22,7 @@ class StudentController extends Controller
 
         $student = $user->student();
 
+        // This isn't right..
         $placementsData = $student->placements()->get();
               
         $placments = [];
