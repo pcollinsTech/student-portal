@@ -68,10 +68,12 @@ class Student extends Model
             ->withPivot(['activation_code', 'active', 'placement_start', 'placement_end'])
             ->using(PharmacyStudent::class);
     }
+    
     public function pharmacists()
     {
         return $this->belongsToMany(Pharmacist::class)
             ->withPivot(['activation_code', 'active', 'tutor_start', 'tutor_end'])
             ->using(PharmacistStudent::class);
     }
+    
 }
