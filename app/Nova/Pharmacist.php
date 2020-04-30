@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
@@ -55,6 +56,12 @@ class Pharmacist extends Resource
             DateTime::make('Date Registered', 'date_registered')
                 ->hideFromIndex(),
             Boolean::make('Verified', 'verified'),
+            BelongsToMany::make('Students')
+                ->fields(function() {
+                    return [
+                        Boolean::make('active'),
+                    ];
+                }),
         ];
     }
 

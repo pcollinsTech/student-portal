@@ -32,6 +32,7 @@ class Student extends Model
         'date_of_birth',
         'university_id',
         'entry_date',
+        'completion_date',
         'previous_training',
         'previous_training_details',
         'terms',
@@ -39,7 +40,8 @@ class Student extends Model
 
     protected $casts = [
         'date_of_birth' => 'datetime',
-        'entry_date' => 'datetime'
+        'entry_date' => 'datetime',
+        'completion_date' => 'datetime'
     ];
 
     /**

@@ -7,20 +7,27 @@
 
           <div class="card-body">
             <div>
-              <a href="/forms/photo_verification_form.pdf" download>
+              <a href="/forms/photo_verification_form.pdf" download v-if="downloadPdf">
                 <button
                   class="btn btn-success mb-4"
                   style="color: white"
-                  v-on:click="downloadPdf"
+                  @click="downloadPdf"
                 >
                   Download Certification Form
                 </button>
               </a>
             <br/>
             </div>
-            <template v-for="field in fields_0">
-              <input-field-component @submit="eventHandler($event)" :field="field"></input-field-component>
-            </template>
+            <div class="supporting-documents">
+              <div v-if="uploading" class="supporting-documents__loading">
+                <h4>Uploading...</h4>
+              </div>
+              <div>
+                <template v-for="field in fields_0">
+                  <input-field-component @submit="eventHandler($event)" :field="field"></input-field-component>
+                </template>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -41,6 +48,7 @@ export default {
 
   props: {
     loading:false,
+    downloadPdf: null,
     // counties: {
     //     type: Array,
     //     required: true,
@@ -53,6 +61,7 @@ export default {
 
   data() {
     return {
+      uploading: false,
       fields_0: {
         document__birth_certificate: {
           id: "document__birth_certificate",
@@ -107,7 +116,7 @@ export default {
         },
         submit_step_5: {
           id: "submit_step_5",
-          name: "Upload Documents & Complete Application",
+          name: "Upload Documents",
           extra: "",
           type: "submit",
           autocomplete: "off",
@@ -166,12 +175,13 @@ export default {
       // submit form here
       var self = this;
 
+      this.uploading = true;
       axios
         .post("/registration", formData)
         .then(res => {
           // Proceed to next step
           // console.log(response);
-
+          this.uploading = false;
           // Redirect to the Registration Payment
           window.location.replace("/registration");
         })
