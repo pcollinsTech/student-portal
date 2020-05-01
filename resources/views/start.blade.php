@@ -119,7 +119,7 @@
                 <li>Passport (Visa if applicable)</li>
                 <li>Application fee of £206 payable by debit card</li>
             </ol>
-            <a href="http://www.psni.org.uk/pre-registration/applying-to-register-as-trainee-of-the-society/" class="primary">http://www.psni.org.uk/pre-registration/applying-to-register-as-trainee-of-the-society/</a>
+            <a href="http://www.psni.org.uk/pre-registration/applying-to-register-as-trainee-of-the-society/" target="__blank" class="primary">http://www.psni.org.uk/pre-registration/applying-to-register-as-trainee-of-the-society/</a>
 
             <h4 class="primary mt-2">1. Submitting my application?</h4>
 
@@ -132,7 +132,7 @@
             <h4 class="primary">3. When can I start pre-registration training?</h4>
             <p>For the 2020-21 intake, pre-registration training may only start between 15 July 2020* and 14 September 2020.<br/> *If you start training before this date it will not count towards your 52 week total.</p>
             <h4 class="primary">4. Birth certificate?</h4>
-            <p>The Pharmaceutical Society NI requires a solicitor’s certified photocopy of your original birth certificate to be uploaded during your online application.</p>
+            <p>The Pharmaceutical Society NI requires a certified photocopy of your original birth certificate to be uploaded during your online application.</p>
             <h4 class="primary">5. I have not yet passed my MPharm/OSPAP?</h4>
             <p>You can apply to start training before you know if you have passed your MPharm/OSPAP.</br>
             You cannot start training until you have passed your MPharm/OSPAP and the Pharmaceutical Society NI has been notified.</p>
@@ -157,12 +157,12 @@
                 </button>
               </a>
             <p>All applicants must provide a recent passport photograph that has been certified on the reverse by an appropriate official.<br/>
-            When accepting certified photographs, we follow the same standards of the UK Passport service. You will find details of who can certify your photo can be found on the <a href="https://www.gov.uk/countersigning-passport-applications">Gov.uk</a> website:</br>
+            When accepting certified photographs, we follow the same standards of the UK Passport service. You will find details of who can certify your photo can be found on the <a href="https://www.gov.uk/countersigning-passport-applications" target="__blank">Gov.uk</a> website:</br>
             Countersigning photographs</br>
             Further information on the photograph requirements will be available in this section</p>
             <div class="d-flex justify-content-around">
                 <a href="{{ route('register') }}">
-                    <button class="button">Register  >></button>
+                    <button class="button">Begin Application  >></button>
                 </a>
                 
             </div>

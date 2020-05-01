@@ -2,7 +2,7 @@
     <div class="form-group row d-flex align-items-center">
         <!--Text / Email Field-->
         <template v-if="field.type == 'text' || field.type == 'email'">
-            <label :for="field.id" class="col-md-5 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
+            <label :for="field.id" class="col-md-5 col-form-label text-md-right">({{ fieldRequired(field.required) }}) - {{ field.name }} <br><small>{{ field.extra }}</small></label>
 
             <div class="col-md-6">
                 <input :id="field.id" :type="field.type" class="form-control" :class="errorClass(field)" :name="field.id" v-model="field.value" :required="field.required" :autocomplete="field.autocomplete">
@@ -14,7 +14,7 @@
         </template>
         <!--Select Field-->
         <template v-else-if="field.type == 'select'">
-            <label :for="field.id" class="col-md-5 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
+            <label :for="field.id" class="col-md-5 col-form-label text-md-right">({{ fieldRequired(field.required) }}) - {{ field.name }}<br><small>{{ field.extra }}</small></label>
 
             <div class="col-md-6">
                 <select :id="field.id" class="form-control" :class="errorClass(field)" :name="field.id" v-model="field.value" :required="field.required" :autocomplete="field.autocomplete">
@@ -31,7 +31,7 @@
         </template>
         <!--Date Field-->
         <template v-else-if="field.type == 'date'">
-            <label :for="field.id" class="col-md-5 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
+            <label :for="field.id" class="col-md-5 col-form-label text-md-right">({{ fieldRequired(field.required) }}) - {{ field.name }} <br><small>{{ field.extra }}</small></label>
 
             <div class="col-md-6">
                 <vc-date-picker :class="errorClass(field)" v-model="field.value" :popover="{ placement: 'bottom', visibility: 'click' }" :is-required="true" :from-page="field.options[0].loadPage" :masks="{ input: ['DD/MM/YYYY']}" :max-date="field.options[0].maxDate" :min-date="field.options[0].minDate"/>
@@ -43,7 +43,7 @@
         </template>
         <!--Textarea-->
         <template v-else-if="field.type == 'textarea'">
-            <label :for="field.id" class="col-md-5 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
+            <label :for="field.id" class="col-md-5 col-form-label text-md-right">({{ fieldRequired(field.required) }}) - {{ field.name }}<br><small>{{ field.extra }}</small></label>
 
             <div class="col-md-6">
                 <textarea v-model="field.value" :name="field.id" :id="field.id" class="form-control" :class="errorClass(field)" :required="field.required"></textarea>
@@ -55,7 +55,7 @@
         </template>
         <!--True Detail-->
         <template v-else-if="field.type == 'true_detail'">
-            <label :for="field.id" class="col-md-10 col-form-label text-md-right">{{ field.name }}{{ fieldRequired(field.required) }} <br><small v-if="field.extra">Viewable at the following <a :href="field.extra"  target="__blank">link</a></small></label>
+            <label :for="field.id" class="col-md-10 col-form-label text-md-right">({{ fieldRequired(field.required) }}) - {{ field.name }}<br><small v-if="field.extra">Viewable at the following <a :href="field.extra"  target="__blank">link</a></small></label>
 
             <div class="col-md-2 text-right">
 <!--                <b-form-checkbox v-model="field.value" name="check-button">-->
@@ -77,7 +77,7 @@
         </template>
         <!--Boolean-->
         <template v-else-if="field.type == 'boolean'">
-            <label :for="field.id" class="col-md-10 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small v-if="field.extra">Viewable at the following <a :href="field.extra"  target="__blank">link</a></small></label>
+            <label :for="field.id" class="col-md-10 col-form-label text-md-right">({{ fieldRequired(field.required) }}) - {{ field.name }}<br><small v-if="field.extra">Viewable at the following <a :href="field.extra"  target="__blank">link</a></small></label>
 
             <div class="col-md-2 text-right">
                 <b-form-group >
@@ -102,7 +102,7 @@
         </template>
         <!--Password-->
         <template v-else-if="field.type == 'password'">
-            <label :for="field.id" class="col-md-5 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
+            <label :for="field.id" class="col-md-5 col-form-label text-md-right">({{ fieldRequired(field.required) }}) - {{ field.name }} <br><small>{{ field.extra }}</small></label>
 
             <div class="col-md-6">
                 <input :id="field.id" :type="field.type" class="form-control" :class="errorClass(field)" :name="field.id" v-model="field.value" :required="field.required" :autocomplete="field.autocomplete">
@@ -121,7 +121,7 @@
         </template>
         <!--File Upload-->
         <template v-else-if="field.type == 'file_upload'">
-            <label :for="field.id" class="col-md-5 col-form-label text-md-right">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
+            <label :for="field.id" class="col-md-5 col-form-label text-md-right">({{ fieldRequired(field.required) }}) - {{ field.name }} <br><small>{{ field.extra }}</small></label>
 
             <div class="col-md-7 align-self-start pt-2_5">
                 <!-- Styled -->
@@ -136,7 +136,7 @@
         </template>
         <!--Has 2 Options-->
         <template v-else-if="field.type == 'has_2_options'">
-            <label :for="field.id" class="col-md-12 col-form-label text-md-center">{{ field.name }} {{ fieldRequired(field.required) }} <br><small>{{ field.extra }}</small></label>
+            <label :for="field.id" class="col-md-12 col-form-label text-md-center">({{ fieldRequired(field.required) }}) - {{ field.name }}<br><small>{{ field.extra }}</small></label>
 
             <div class="col-md-12 text-center">
                 <!-- <b-form-group> -->

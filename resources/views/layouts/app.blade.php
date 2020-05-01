@@ -76,7 +76,7 @@
         <div class="container py-5">
         
         <div class="text-right">
-            <img src="/images/logo.png" alt="" style="height: 50px;">
+            <img src="/images/logo-white.png" alt="" style="height: 50px;">
         </div>
         </div>
     </footer>

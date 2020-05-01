@@ -99,7 +99,7 @@ export default {
             },
             __tutors__start: {
               id: "__tutors__start",
-              name: "Tutor Start Date",
+              name: "Training Start Date",
               extra: "",
               type: "date",
               autocomplete: "off",
@@ -135,7 +135,7 @@ export default {
             },
             __tutors__end: {
               id: "__tutors__end",
-              name: "Tutor end Date",
+              name: "Training end Date",
               extra: "",
               type: "date",
               autocomplete: "off",
