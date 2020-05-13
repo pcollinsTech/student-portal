@@ -12,6 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasOne;
 use App\Nova\Actions\PostStudent;
+use Laravel\Nova\Fields\HasMany;
 
 class Student extends Resource
 {
@@ -62,21 +63,21 @@ class Student extends Resource
             Text::make('Known As', 'known_as')
                 ->hideFromIndex()
                 ->sortable(),
-            Text::make('Address Line 1','home_address_1')
+            Text::make('Address Line 1', 'home_address_1')
                 ->hideFromIndex(),
-            Text::make('Address Line 2','home_address_2')
+            Text::make('Address Line 2', 'home_address_2')
                 ->hideFromIndex(),
-            Text::make('City','city')
+            Text::make('City', 'city')
                 ->hideFromIndex(),
-            Text::make('County','county')
+            Text::make('County', 'county')
                 ->hideFromIndex(),
-            Text::make('Post Code','postcode')
+            Text::make('Post Code', 'postcode')
                 ->hideFromIndex(),
-            Text::make('Phone Mobile','phone_mobile')
+            Text::make('Phone Mobile', 'phone_mobile')
                 ->hideFromIndex(),
-            Text::make('Phone Home','phone_home')
+            Text::make('Phone Home', 'phone_home')
                 ->hideFromIndex(),
-            Text::make('University', 'university')->displayUsing(function($university) {
+            Text::make('University', 'university')->displayUsing(function ($university) {
                 return $university->name;
             }),
             DateTime::make('Date of Birth', 'date_of_birth')
@@ -85,26 +86,28 @@ class Student extends Resource
             DateTime::make('Degree Entry Date', 'entry_date')
                 ->format('D/M/Y')
                 ->hideFromIndex(),
-             DateTime::make('Degree Completion Date', 'completion_date')
-                 ->format('D/M/Y')
-                 ->hideFromIndex(),
+            DateTime::make('Degree Completion Date', 'completion_date')
+                ->format('D/M/Y')
+                ->hideFromIndex(),
             Boolean::make('Previous Training', 'previous_training')
-            ->hideFromIndex(),
+                ->hideFromIndex(),
             Text::make('Previous Training Details', 'previous_training_details'),
             HasOne::make('Registration'),
-            // Has::make('Document'),
+
             BelongsToMany::make('Pharmacies')
-                ->fields(function() {
+                ->fields(function () {
                     return [
                         Boolean::make('active'),
                     ];
                 }),
             BelongsToMany::make('Pharmacists')
-                ->fields(function() {
+                ->fields(function () {
                     return [
                         Boolean::make('active'),
                     ];
                 }),
+            HasMany::make('Documents')
+              
         ];
     }
 

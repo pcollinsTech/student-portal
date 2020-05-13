@@ -55,7 +55,7 @@ class User extends Authenticatable
      */
     public function getIsAdminAttribute()
     {
-        if($this->type == 'admin') {
+        if ($this->type == 'admin') {
             return true;
         }
         return false;
@@ -67,5 +67,14 @@ class User extends Authenticatable
     public function student()
     {
         return $this->hasOne('App\Student');
+    }
+
+    /**
+     * Relation User Payments
+     */
+
+    public function payments()
+    {
+        return $this->morphMany('App\Payment', 'entity');
     }
 }

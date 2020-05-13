@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 use App\Mail\PharmacyAcceptanceMail;
 use App\Mail\PharmacistAcceptanceMail;
 //Route::get('/', function () {
@@ -26,9 +27,26 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 // Registration Routes...
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
-Route::get('start', function () {
+Route::get('startV2', function () {
     return view('start');
 });
+
+
+Route::get('test', 'Auth\RegisterController@test');
+
+
+
+// Application Routes
+Route::post('application', 'Auth\RegisterController@application');
+
+
+Route::get('start', 'Auth\RegisterController@startRegister');
+
+Route::get('profile', 'Auth\RegisterController@profile')->middleware('auth');
+
+
+
+
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
@@ -79,4 +97,5 @@ Route::get('/pharmacist-acceptance', function () {
 Route::get('/payment/request', 'PaymentController@requestPayment');
 Route::post('/payment/response', 'PaymentController@processPayment');
 
-//Route::get('/payment', 'PaymentController@processPayment');
+
+Route::get('/storage/{id}', 'StorageController@download');

@@ -18,7 +18,7 @@
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-weight: bolder;
                 height: 100vh;
                 margin: 0;
             }
@@ -38,9 +38,7 @@
             }
 
             .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
+                
             }
 
             .content {
@@ -92,28 +90,81 @@
                 @endif
             </div>
         </nav>
-        <div class="flex-center position-ref my-5">
+        <div class="container mb-4" style="line-height: 2rem;">
             
 
-            <div class="content my-5">
-                <div class="title m-b-md my-5">
-                    <img src="/images/logo.png" alt="">
-                    <br/>
-                    <p style="font-size: 2rem;">
-                        Welcome to the Online Application Portal to register as a <br/>
-                        Pre-registration Trainee of the Pharmaceutical Society NI
-                    </p>    
-                    <br/>
-                  <p style="font-size: 2rem;">
-                        To begin your application, please click on the button below
-                    </p>
-                </div>
-                <div class="d-flex justify-content-around">
-                    <a href="{{ url('start') }}">
-                        <button class="button">Begin Application  >></button>
-                    </a>
-                    
-                </div>
+            <h3 class="text-center my-4">Before you begin your application please read all the information below and confirm you have all items required from the checklist</h3>
+            <h4 class="primary text-center my-4">HOW TO COMPLETE THIS APPLICATION FORM - PLEASE READ CAREFULLY</h4>
+        
+            <p class="text-center px-4">ALL FIELDS MUST BE FULLY AND CORRECTLY COMPLETED IN ORDER FOR AN APPLICATION TO BE ACCEPTED.</p>
+            <p class="text-center px-4">An applicant should NOT start training until they have recieved confirmation from the Pharmaceutical Society that their application has been accepted and have provided confirmation of their MPharm award.</p>
+
+            <h4 class="primary text-center">Before Proceeding To Pre-registration Training</h4>
+
+            <p>All applicants must hold a degree in pharmacy, from a UK-based University recognised by the Pharmaceutical Society NI or the General Pharmaceutical Council. The Pharmaceutical Society NI must have written evidence that you have been awarded a degree from a recognised University before any period of pre-registration training can commence. Not all universities provide this information to the Pharmaceutical Society NI unless YOU request it (only QUB and UU provide confirmation). It is YOUR RESPONSIBILITY to ensure that we have this written evidence before you begin your training; otherwise we will be unable to recognise your start date.</p>
+
+            <p><b>Information for International students can be found on our website using the following link</b></p>
+            <ol>
+                <li>Birth Certificate </li>
+                <li>Passport Photographs (counter signatory information provided by clicking the button below ) </li>
+                <a href="/forms/photo_verification_form.pdf" download>
+                <button
+                  class="btn btn-success mb-4"
+                  style="color: white"
+                  v-on:click="downloadPdf"
+                >
+                  Download Certification Form
+                </button>
+              </a> 
+                <li>Passport (Visa if applicable)</li>
+                <li>Application fee of £206 payable by debit card</li>
+            </ol>
+            <a href="http://www.psni.org.uk/pre-registration/applying-to-register-as-trainee-of-the-society/" target="__blank" class="primary">http://www.psni.org.uk/pre-registration/applying-to-register-as-trainee-of-the-society/</a>
+
+            <h4 class="primary mt-2">1. Submitting my application?</h4>
+
+            <p>Submit your application as soon as you can to ensure there are no delays.</br>
+                The closing date for applications is 31st March 2020; applications will not be accepted after this date.</br>
+                If you have failed your MPharm/OSPAP and will be re-sitting please note that your application should be submitted by the deadline (31st March 2020).</p>
+
+            <h4 class="primary">2. How can I pay?</h4>
+            <p>Payment can be made by debit card.</p>
+            <h4 class="primary">3. When can I start pre-registration training?</h4>
+            <p>For the 2020-21 intake, pre-registration training may only start between 15 July 2020* and 14 September 2020.<br/> *If you start training before this date it will not count towards your 52 week total.</p>
+            <h4 class="primary">4. Birth certificate?</h4>
+            <p>The Pharmaceutical Society NI requires a certified photocopy of your original birth certificate to be uploaded during your online application.</p>
+            <h4 class="primary">5. I have not yet passed my MPharm/OSPAP?</h4>
+            <p>You can apply to start training before you know if you have passed your MPharm/OSPAP.</br>
+            You cannot start training until you have passed your MPharm/OSPAP and the Pharmaceutical Society NI has been notified.</p>
+            <h4 class="primary">6. I have failed my MPharm/OSPAP and will be re-sitting?</h4>
+            <p>You cannot start training until you have passed your MPharm/OSPAP, therefore you will have to delay your start date. If you have failed you should contact your employer and make them aware and contact us to arrange an alternative start date within the designated period.</p>
+            <h4 class="primary">7. Who can certify my degree certificate/OSPAP if already in my possession?</h4>
+            <p>Information on who can certify your degree certificate and the requirements can be found via this link: <a href=" https://www.psni.org.uk/wp-content/uploads/2012/10/Who-can-sign-DC-requirements-Oct-2013-1.pdf" target="__blank">https://www.psni.org.uk/wp-content/uploads/2012/10/Who-can-sign-DC-requirements-Oct-2013-1.pdf</a> </p>
+            <h4 class="primary">8. What are the training requirements/responsibilities of a Pre-registration Tutor?</h4>
+            <p>The requirements/responsibilities are detailed in the Standards for Pre-registration Training (Sections 7 & 8)</p>
+            <h4 class="primary">9. What do I do if I have been assigned two tutors?</h4>
+            <p>Co-tutoring is permitted as long as, between the two tutors, the total hours worked meets the full-time requirement (30 hours over a minimum of four days). Both tutors must complete the ‘Tutor Details’ section and Learning Contract, they will share the responsibility and must co-sign the final declaration. A co-tutoring form must be completed and submitted with the application. The co-tutoring form can be accessed via link below: <a href="https://www.psni.org.uk/wp-content/uploads/2012/10/Co-tutor-Form-2018-1.pdf" target="__blank">https://www.psni.org.uk/wp-content/uploads/2012/10/Co-tutor-Form-2018-1.pdf    </a></p>
+            <h4 class="primary">10.What do I need to submit if I have made a Fitness to Practise declaration?</h4>
+            <p>If you have to ‘Yes’ to any of the questions in relation to charachter declaration you will need to provide a detailed account of the Fitness to Practise issues in the box provided.</p>
+            <h4 class="primary">11.Who can certify my photograph?</h4> 
+            <a href="/forms/photo_verification_form.pdf" download>
+                <button
+                  class="btn btn-success mb-4"
+                  style="color: white"
+                  v-on:click="downloadPdf"
+                >
+                  Download Certification Form
+                </button>
+              </a>
+            <p>All applicants must provide a recent passport photograph that has been certified on the reverse by an appropriate official.<br/>
+            When accepting certified photographs, we follow the same standards of the UK Passport service. You will find details of who can certify your photo can be found on the <a href="https://www.gov.uk/countersigning-passport-applications" target="__blank">Gov.uk</a> website:</br>
+            Countersigning photographs</br>
+            Further information on the photograph requirements will be available in this section</p>
+            <div class="d-flex justify-content-around">
+                <a href="{{ route('register') }}">
+                    <button class="button">Begin Application  >></button>
+                </a>
+                
             </div>
         </div>
         <footer class="bg-dark">

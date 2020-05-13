@@ -1,0 +1,6 @@
+@include('application.steps.info')
+@include('application.steps.profile')
+@include('application.steps.declarations')
+@include('application.steps.placements')
+@include('application.steps.option_documents')
+@include('application.steps.payment')

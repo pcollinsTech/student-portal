@@ -1,6 +1,5 @@
 {
-    "/public/app.js": "/public/app.js",
-    "/public/app.css": "/public/app.css",
-    "/public/vendor.js": "/public/vendor.js",
-    "/public/manifest.js": "/public/manifest.js"
+    "/-app/public/vendor/nova/app.js": "/-app/public/vendor/nova/app.js",
+    "/-app/public/vendor/nova/vendor.js": "/-app/public/vendor/nova/vendor.js",
+    "/-app/public/vendor/nova/manifest.js": "/-app/public/vendor/nova/manifest.js"
 }

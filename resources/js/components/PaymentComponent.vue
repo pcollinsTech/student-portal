@@ -47,6 +47,7 @@
                     RealexHpp.setHppUrl("https://pay.sandbox.realexpayments.com/pay");
                     RealexHpp.lightbox.init(this.$refs.button.id, "payment/response", this.rpxData);
                 })
+                
             }
         }
     }

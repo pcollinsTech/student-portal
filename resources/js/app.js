@@ -23,6 +23,10 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
+
+// Event Emiter Vue Instance
+window.Bus = new Vue();
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -47,6 +51,20 @@ Vue.component('tutor-details-component', require('./components/TutorSelectCompon
 Vue.component('pharmacy-acceptance', require('./components/PharmacyAcceptanceForm.vue').default);
 Vue.component('tutor-acceptance', require('./components/TutorAcceptanceForm.vue').default);
 Vue.component('b-form-file', BFormFile)
+Vue.component('vslider', require('./components/Slider.vue').default)
+Vue.component('vinput', require('./components/VInput.vue').default)
+Vue.component('application', require('./components/Application.vue').default)
+Vue.component('vselect', require('./components/VSelect.vue').default)
+Vue.component('vswitchinline', require('./components/VSwitchInline.vue').default)
+Vue.component('vtogglebuttons', require('./components/VToggleButtons.vue').default)
+Vue.component('vradio', require('./components/VRadio.vue').default)
+Vue.component('vdate', require('./components/VDate.vue').default)
+Vue.component('vupload', require('./components/VUpload.vue').default)
+Vue.component('charger', require('./components/Charger.vue').default)
+Vue.component('toast', require('./components/Charger.vue').default)
+Vue.component('vnotys', require('./components/VNoty.vue').default)
+Vue.component('Counties', require('./components/Counties.vue').default)
+
 
 // Use v-calendar & v-date-picker components
 Vue.use(VCalendar, {
@@ -61,4 +79,14 @@ Vue.use(VCalendar, {
 
 const app = new Vue({
     el: '#app',
-});
+    mounted() {
+
+        let local = this;
+        window.onload = function () {
+
+            this.setTimeout(() => {
+                document.body.style.opacity = 1;
+            }, 1500)
+        }
+    }
+})

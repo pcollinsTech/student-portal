@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Image;
 
 class Document extends Resource
 {
@@ -50,7 +51,9 @@ class Document extends Resource
         return [
             Text::make('file_type'),
             BelongsTo::make('Registration'),
-            File::make('file_path')->disk('local')
+            File::make('file_path')->disk('local'),
+            Image::make('id')->disk('local'),
+
         ];
     }
 
