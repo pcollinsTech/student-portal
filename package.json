@@ -12,7 +12,7 @@
         "build-student-count-prod": "cd nova-components/StudentCount && npm run prod"
     },
     "devDependencies": {
-        "axios": "^0.19",
+        "axios": "^0.21",
         "bootstrap": "^4.0.0",
         "bootstrap-vue": "^2.10.1",
         "cross-env": "^7.0",
